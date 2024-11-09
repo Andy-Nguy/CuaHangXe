@@ -97,6 +97,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\SieuXEDb.mdf" />
+    <Content Include="App_Data\SieuXEDb_log.ldf">
+      <DependentUpon>SieuXEDb.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap\css\bootstrap-grid.css" />
     <Content Include="Content\bootstrap\css\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap\css\bootstrap-reboot.css" />
@@ -149,8 +153,8 @@
     <Content Include="Images\xehay-Rolls-Royce-Cullinan-review-270120 %284%29.jpg" />
     <Content Include="Models\SieuXeDb.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>SieuXeDb.Context.cs</LastGenOutput>
       <DependentUpon>SieuXeDb.edmx</DependentUpon>
+      <LastGenOutput>SieuXeDb.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Models\SieuXeDb.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -217,13 +221,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
-    <EntityDeploy Include="Models\SieuXeDb.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>SieuXeDb.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\SieuXeDb.edmx.diagram">
-      <DependentUpon>SieuXeDb.edmx</DependentUpon>
-    </Content>
     <Content Include="Content\bootstrap\css\bootstrap-grid.css.map" />
     <Content Include="Content\bootstrap\css\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap\css\bootstrap-reboot.css.map" />
@@ -234,6 +231,13 @@
     <Content Include="Content\bootstrap\js\bootstrap.bundle.min.js.map" />
     <Content Include="Content\bootstrap\js\bootstrap.js.map" />
     <Content Include="Content\bootstrap\js\bootstrap.min.js.map" />
+    <EntityDeploy Include="Models\SieuXeDb.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SieuXeDb.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\SieuXeDb.edmx.diagram">
+      <DependentUpon>SieuXeDb.edmx</DependentUpon>
+    </Content>
     <None Include="packages.config" />
     <Content Include="Views\Shared\_LayoutPage1.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -246,9 +250,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
