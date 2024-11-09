@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="SieuXEDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="SieuXeDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="BaoHanhXe">
           <Key>
             <PropertyRef Name="MaBaoHanh" />
@@ -288,7 +288,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="SieuXEDbModelStoreContainer">
+        <EntityContainer Name="SieuXeDbModelStoreContainer">
           <EntitySet Name="BaoHanhXe" EntityType="Self.BaoHanhXe" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DichVu" EntityType="Self.DichVu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HoaDonBanHang" EntityType="Self.HoaDonBanHang" Schema="dbo" store:Type="Tables" />
@@ -357,7 +357,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="SieuXEDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="SieuXeDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="BaoHanhXe">
           <Key>
             <PropertyRef Name="MaBaoHanh" />
@@ -667,7 +667,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="CuaHangXe_test2Entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="SieuXeDbEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="BaoHanhXes" EntityType="Self.BaoHanhXe" />
           <EntitySet Name="DichVus" EntityType="Self.DichVu" />
           <EntitySet Name="HoaDonBanHangs" EntityType="Self.HoaDonBanHang" />
@@ -737,9 +737,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="SieuXEDbModelStoreContainer" CdmEntityContainer="CuaHangXe_test2Entities">
+        <EntityContainerMapping StorageEntityContainer="SieuXeDbModelStoreContainer" CdmEntityContainer="SieuXeDbEntities1">
           <EntitySetMapping Name="BaoHanhXes">
-            <EntityTypeMapping TypeName="SieuXEDbModel.BaoHanhXe">
+            <EntityTypeMapping TypeName="SieuXeDbModel.BaoHanhXe">
               <MappingFragment StoreEntitySet="BaoHanhXe">
                 <ScalarProperty Name="MaBaoHanh" ColumnName="MaBaoHanh" />
                 <ScalarProperty Name="MaXe" ColumnName="MaXe" />
@@ -752,7 +752,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DichVus">
-            <EntityTypeMapping TypeName="SieuXEDbModel.DichVu">
+            <EntityTypeMapping TypeName="SieuXeDbModel.DichVu">
               <MappingFragment StoreEntitySet="DichVu">
                 <ScalarProperty Name="MaDichVu" ColumnName="MaDichVu" />
                 <ScalarProperty Name="TenDichVu" ColumnName="TenDichVu" />
@@ -765,7 +765,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="HoaDonBanHangs">
-            <EntityTypeMapping TypeName="SieuXEDbModel.HoaDonBanHang">
+            <EntityTypeMapping TypeName="SieuXeDbModel.HoaDonBanHang">
               <MappingFragment StoreEntitySet="HoaDonBanHang">
                 <ScalarProperty Name="MaHoaDon" ColumnName="MaHoaDon" />
                 <ScalarProperty Name="MaHopDong" ColumnName="MaHopDong" />
@@ -777,7 +777,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="HopDongMuaBans">
-            <EntityTypeMapping TypeName="SieuXEDbModel.HopDongMuaBan">
+            <EntityTypeMapping TypeName="SieuXeDbModel.HopDongMuaBan">
               <MappingFragment StoreEntitySet="HopDongMuaBan">
                 <ScalarProperty Name="MaHopDong" ColumnName="MaHopDong" />
                 <ScalarProperty Name="MaKhachHang" ColumnName="MaKhachHang" />
@@ -791,7 +791,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="KhachHangs">
-            <EntityTypeMapping TypeName="SieuXEDbModel.KhachHang">
+            <EntityTypeMapping TypeName="SieuXeDbModel.KhachHang">
               <MappingFragment StoreEntitySet="KhachHang">
                 <ScalarProperty Name="MaKhachHang" ColumnName="MaKhachHang" />
                 <ScalarProperty Name="HoTenKhachHang" ColumnName="HoTenKhachHang" />
@@ -802,7 +802,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="NhaCungCaps">
-            <EntityTypeMapping TypeName="SieuXEDbModel.NhaCungCap">
+            <EntityTypeMapping TypeName="SieuXeDbModel.NhaCungCap">
               <MappingFragment StoreEntitySet="NhaCungCap">
                 <ScalarProperty Name="MaNhaCungCap" ColumnName="MaNhaCungCap" />
                 <ScalarProperty Name="TenNhaCungCap" ColumnName="TenNhaCungCap" />
@@ -813,7 +813,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="NhanViens">
-            <EntityTypeMapping TypeName="SieuXEDbModel.NhanVien">
+            <EntityTypeMapping TypeName="SieuXeDbModel.NhanVien">
               <MappingFragment StoreEntitySet="NhanVien">
                 <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
                 <ScalarProperty Name="TenNhanVien" ColumnName="TenNhanVien" />
@@ -825,7 +825,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PhieuNhapKhoes">
-            <EntityTypeMapping TypeName="SieuXEDbModel.PhieuNhapKho">
+            <EntityTypeMapping TypeName="SieuXeDbModel.PhieuNhapKho">
               <MappingFragment StoreEntitySet="PhieuNhapKho">
                 <ScalarProperty Name="MaPhieuNhap" ColumnName="MaPhieuNhap" />
                 <ScalarProperty Name="MaXe" ColumnName="MaXe" />
@@ -837,7 +837,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PhieuXuatKhoes">
-            <EntityTypeMapping TypeName="SieuXEDbModel.PhieuXuatKho">
+            <EntityTypeMapping TypeName="SieuXeDbModel.PhieuXuatKho">
               <MappingFragment StoreEntitySet="PhieuXuatKho">
                 <ScalarProperty Name="MaPhieuXuat" ColumnName="MaPhieuXuat" />
                 <ScalarProperty Name="MaXe" ColumnName="MaXe" />
@@ -851,7 +851,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TaiKhoans">
-            <EntityTypeMapping TypeName="SieuXEDbModel.TaiKhoan">
+            <EntityTypeMapping TypeName="SieuXeDbModel.TaiKhoan">
               <MappingFragment StoreEntitySet="TaiKhoan">
                 <ScalarProperty Name="MaTaiKhoan" ColumnName="MaTaiKhoan" />
                 <ScalarProperty Name="TenDangNhap" ColumnName="TenDangNhap" />
@@ -862,7 +862,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Xes">
-            <EntityTypeMapping TypeName="SieuXEDbModel.Xe">
+            <EntityTypeMapping TypeName="SieuXeDbModel.Xe">
               <MappingFragment StoreEntitySet="Xe">
                 <ScalarProperty Name="MaXe" ColumnName="MaXe" />
                 <ScalarProperty Name="TenXe" ColumnName="TenXe" />
