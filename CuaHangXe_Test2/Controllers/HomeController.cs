@@ -10,7 +10,7 @@ namespace CuaHangXe_Test2.Controllers
     public class HomeController : Controller
     {
         //Hi
-        SieuXeDbEntities1 db =new SieuXeDbEntities1();
+        SieuXeDbmdfEntities2 db =new SieuXeDbmdfEntities2();
         // GET: Home
         public ActionResult Index(string HangXe = "Lamborghini", string DongXe = "Hypercar")
         {  /* / Lọc theo hãng xe*/
