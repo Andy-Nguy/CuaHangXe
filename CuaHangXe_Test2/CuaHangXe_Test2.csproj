@@ -112,6 +112,7 @@
     <Content Include="Content\bootstrap\js\bootstrap.js" />
     <Content Include="Content\bootstrap\js\bootstrap.min.js" />
     <Content Include="Content\bootstrap\js\jquery-3.3.1.min.js" />
+    <Content Include="Content\font.css" />
     <Content Include="Content\main.css" />
     <Content Include="Content\script.js" />
     <Content Include="Content\Site.css" />
@@ -238,11 +239,15 @@
     <Content Include="Models\Data.edmx.diagram">
       <DependentUpon>Data.edmx</DependentUpon>
     </Content>
+    <Content Include="Fonts\Mercedes Benz.woff2" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_LayoutPage1.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\SanPham.cshtml" />
     <Content Include="Views\Home\ChiTietSanPham.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\DanhSachXe.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
