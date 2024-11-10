@@ -13,10 +13,10 @@ namespace CuaHangXe_Test2.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class SieuXeDb1Entities : DbContext
+    public partial class SieuXeDbEntities2 : DbContext
     {
-        public SieuXeDb1Entities()
-            : base("name=SieuXeDb1Entities")
+        public SieuXeDbEntities2()
+            : base("name=SieuXeDbEntities2")
         {
         }
     

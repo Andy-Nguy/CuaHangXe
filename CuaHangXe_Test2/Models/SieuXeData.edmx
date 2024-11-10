@@ -677,7 +677,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="SieuXeDb1Entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="SieuXeDbEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="BaoHanhXes" EntityType="Self.BaoHanhXe" />
           <EntitySet Name="DichVus" EntityType="Self.DichVu" />
           <EntitySet Name="HoaDonBanHangs" EntityType="Self.HoaDonBanHang" />
@@ -747,7 +747,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="SieuXeDbmdfModelStoreContainer" CdmEntityContainer="SieuXeDb1Entities">
+        <EntityContainerMapping StorageEntityContainer="SieuXeDbmdfModelStoreContainer" CdmEntityContainer="SieuXeDbEntities2">
           <EntitySetMapping Name="BaoHanhXes">
             <EntityTypeMapping TypeName="SieuXeDbmdfModel.BaoHanhXe">
               <MappingFragment StoreEntitySet="BaoHanhXe">

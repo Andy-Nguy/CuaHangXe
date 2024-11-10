@@ -241,15 +241,15 @@
     <Content Include="Images\XE_019_2.jpg" />
     <Content Include="Images\XE_019_3.jpg" />
     <Content Include="Images\XE_019_4.jpg" />
-    <Content Include="Models\DataXe.Context.tt">
+    <Content Include="Models\SieuXeData.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DataXe.edmx</DependentUpon>
-      <LastGenOutput>DataXe.Context.cs</LastGenOutput>
+      <DependentUpon>SieuXeData.edmx</DependentUpon>
+      <LastGenOutput>SieuXeData.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\DataXe.tt">
+    <Content Include="Models\SieuXeData.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DataXe.edmx</DependentUpon>
-      <LastGenOutput>DataXe.cs</LastGenOutput>
+      <DependentUpon>SieuXeData.edmx</DependentUpon>
+      <LastGenOutput>SieuXeData1.cs</LastGenOutput>
     </Content>
     <Content Include="Web.config" />
   </ItemGroup>
@@ -260,52 +260,52 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BaoHanhXe.cs">
-      <DependentUpon>DataXe.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataXe.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataXe.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataXe.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataXe.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataXe.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataXe.edmx</DependentUpon>
+      <DependentUpon>SieuXeData.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DichVu.cs">
-      <DependentUpon>DataXe.tt</DependentUpon>
+      <DependentUpon>SieuXeData.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\HoaDonBanHang.cs">
-      <DependentUpon>DataXe.tt</DependentUpon>
+      <DependentUpon>SieuXeData.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\HopDongMuaBan.cs">
-      <DependentUpon>DataXe.tt</DependentUpon>
+      <DependentUpon>SieuXeData.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\KhachHang.cs">
-      <DependentUpon>DataXe.tt</DependentUpon>
+      <DependentUpon>SieuXeData.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\NhaCungCap.cs">
-      <DependentUpon>DataXe.tt</DependentUpon>
+      <DependentUpon>SieuXeData.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\NhanVien.cs">
-      <DependentUpon>DataXe.tt</DependentUpon>
+      <DependentUpon>SieuXeData.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PhieuNhapKho.cs">
-      <DependentUpon>DataXe.tt</DependentUpon>
+      <DependentUpon>SieuXeData.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PhieuXuatKho.cs">
-      <DependentUpon>DataXe.tt</DependentUpon>
+      <DependentUpon>SieuXeData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SieuXeData.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SieuXeData.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SieuXeData.Designer.cs">
+      <DependentUpon>SieuXeData.edmx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Models\SieuXeData1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SieuXeData.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TaiKhoan.cs">
-      <DependentUpon>DataXe.tt</DependentUpon>
+      <DependentUpon>SieuXeData.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Xe.cs">
-      <DependentUpon>DataXe.tt</DependentUpon>
+      <DependentUpon>SieuXeData.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -321,14 +321,14 @@
     <Content Include="Content\bootstrap\js\bootstrap.bundle.min.js.map" />
     <Content Include="Content\bootstrap\js\bootstrap.js.map" />
     <Content Include="Content\bootstrap\js\bootstrap.min.js.map" />
-    <EntityDeploy Include="Models\DataXe.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DataXe.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\DataXe.edmx.diagram">
-      <DependentUpon>DataXe.edmx</DependentUpon>
-    </Content>
     <Content Include="Fonts\Mercedes Benz.woff2" />
+    <EntityDeploy Include="Models\SieuXeData.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SieuXeData.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\SieuXeData.edmx.diagram">
+      <DependentUpon>SieuXeData.edmx</DependentUpon>
+    </Content>
     <None Include="packages.config" />
     <Content Include="Views\Shared\_LayoutPage1.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
