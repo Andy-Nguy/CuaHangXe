@@ -95,13 +95,13 @@
                         <img  src="~/Images/@Html.DisplayFor(model => model.HinhAnh)" alt="Thumbnail 1" onclick="changeImage(this)">
                     </div>
                     <div class="product-thumbnail">
-                        <img  src="~/Images/2.jpg" alt="Thumbnail 2" onclick="changeImage(this)">
+                        <img  src="~/Images/@Html.DisplayFor(model => model.HinhAnh2)" alt="Thumbnail 2" onclick="changeImage(this)">
                     </div>
                     <div class="product-thumbnail">
-                        <img  src="~/Images/@Html.DisplayFor(model => model.HinhAnh)" alt="Thumbnail 3" onclick="changeImage(this)">
+                        <img  src="~/Images/@Html.DisplayFor(model => model.HinhAnh3)" alt="Thumbnail 3" onclick="changeImage(this)">
                     </div>
                     <div class="product-thumbnail">
-                        <img src="~/Images/@Html.DisplayFor(model => model.HinhAnh)" alt="Thumbnail 4" onclick="changeImage(this)">
+                        <img src="~/Images/@Html.DisplayFor(model => model.HinhAnh4)" alt="Thumbnail 4" onclick="changeImage(this)">
                     </div>
                 </div>
             </div>
@@ -124,14 +124,14 @@
                 <!-- Product Status and Description -->
                 <div class="status-spacing d-flex justify-content-between">
                     <div><b>Tình Trạng:</b></div>
-                    <div>Mới, lịch sử rõ ràng</div>
+                    <div>@Html.DisplayFor(model => model.TrangThai)</div>
                 </div>
 
                 <div class="separator"></div>
 
                 <div class="description-spacing d-flex justify-content-between">
                     <div><b>Mô tả:</b></div>
-                    <div>Xe đẹp, phiên bản giới hạn</div>
+                    <div>@Html.DisplayFor(model => model.MoTa)</div>
                 </div>
             </div>
         </div>

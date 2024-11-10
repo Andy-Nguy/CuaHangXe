@@ -97,9 +97,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\SieuXeDb.mdf" />
-    <Content Include="App_Data\SieuXeDb_log.ldf">
-      <DependentUpon>SieuXeDb.mdf</DependentUpon>
+    <Content Include="App_Data\SieuXeDbmdf.mdf" />
+    <Content Include="App_Data\SieuXeDbmdf_log.ldf">
+      <DependentUpon>SieuXeDbmdf.mdf</DependentUpon>
     </Content>
     <Content Include="Content\bootstrap\css\bootstrap-grid.css" />
     <Content Include="Content\bootstrap\css\bootstrap-grid.min.css" />
@@ -120,6 +120,8 @@
     <Content Include="Images\1.jpg" />
     <Content Include="Images\1Screenshot 2024-11-08 102958.jpg" />
     <Content Include="Images\2.jpg" />
+    <Content Include="Images\2024-lamborghini-revuelto-review.jpg" />
+    <Content Include="Images\22.jpg" />
     <Content Include="Images\2Screenshot 2024-11-08 103402.jpg" />
     <Content Include="Images\3.jpg" />
     <Content Include="Images\640-sieu-xe-Pagani-Huayra-BC.jpg" />
@@ -130,6 +132,7 @@
     <Content Include="Images\dc35efe6a78d48e99fc915c167249cfd.jpg" />
     <Content Include="Images\DS102853_480x480.jpg" />
     <Content Include="Images\DS103882_2_480x480.jpg" />
+    <Content Include="Images\ea047f6136a932aceb21459f111aa058.jpg" />
     <Content Include="Images\f8.jpg" />
     <Content Include="Images\ferrari-logo-1931.jpg" />
     <Content Include="Images\Ferrari-SF90-XX-1-5118-1688351681.jpg" />
@@ -137,30 +140,116 @@
     <Content Include="Images\fordgt.jpg" />
     <Content Include="Images\g63.jpg" />
     <Content Include="Images\GB3K_2023_DAY4_DSC_3444_KIRANBCOX_2_480x480.jpg" />
+    <Content Include="Images\hq720.jpg" />
     <Content Include="Images\images %281%29.jpg" />
     <Content Include="Images\images.jpg" />
     <Content Include="Images\lamborghini-urus-16875333912111624025262-75-0-1080-1920-crop-1687533407701316181641.jpg" />
     <Content Include="Images\logo-ferrari-3.jpg" />
     <Content Include="Images\mayback.jpg" />
     <Content Include="Images\mc20-hero.jpg" />
+    <Content Include="Images\New-2020-Lamborghini-Aventador-SVJ-Roadster-1597949125 %281%29.jpg" />
     <Content Include="Images\peguni-03-scaled.jpg" />
     <Content Include="Images\r.jpg" />
     <Content Include="Images\renazzo-lamborghini-urus-performante-unveiled-thailand-motor-expo-2022-7-16699859694741013805461-crop-16699861242161368888932.jpg" />
     <Content Include="Images\rolls-royce-ghost-black.jpg" />
     <Content Include="Images\Screenshot 2024-11-03 083812.jpg" />
     <Content Include="Images\Screenshot 2024-11-03 153608.jpg" />
+    <Content Include="Images\Screenshot 2024-11-07 211457.jpg" />
+    <Content Include="Images\Screenshot 2024-11-07 212609.jpg" />
+    <Content Include="Images\Screenshot 2024-11-07 212831.jpg" />
+    <Content Include="Images\Screenshot 2024-11-07 213142.jpg" />
+    <Content Include="Images\Screenshot 2024-11-07 220012.jpg" />
     <Content Include="Images\sf90.jpg" />
+    <Content Include="Images\Xe0013_1.jpg" />
+    <Content Include="Images\Xe0013_2.jpg" />
+    <Content Include="Images\Xe0013_3.jpg" />
+    <Content Include="Images\Xe0013_4.jpg" />
+    <Content Include="Images\XE008_1.jpg" />
+    <Content Include="Images\XE008_3.jpg" />
+    <Content Include="Images\XE008_4.jpg" />
+    <Content Include="Images\XE008__2.jpg" />
+    <Content Include="Images\XE015_1.jpg" />
+    <Content Include="Images\XE015_2.jpg" />
+    <Content Include="Images\XE015_3.jpg" />
+    <Content Include="Images\XE015_4.png" />
+    <Content Include="Images\xedoisong_maserati_levante_trofeo_viet_nam_1_xwvy.jpg" />
     <Content Include="Images\xehay-Rolls-Royce-Cullinan-review-270120 %284%29 %281%29.jpg" />
     <Content Include="Images\xehay-Rolls-Royce-Cullinan-review-270120 %284%29.jpg" />
-    <Content Include="Models\Data.Context.tt">
+    <Content Include="Images\XE_0011_1.jpg" />
+    <Content Include="Images\XE_0011_1.png" />
+    <Content Include="Images\XE_0011_2.jpg" />
+    <Content Include="Images\XE_0011_3.jpg" />
+    <Content Include="Images\XE_0011_4.jpg" />
+    <Content Include="Images\XE_0012_1.jpg" />
+    <Content Include="Images\XE_0012_2.jpg" />
+    <Content Include="Images\XE_0012_3.jpg" />
+    <Content Include="Images\XE_0012_4.jpg" />
+    <Content Include="Images\XE_0012_4.png" />
+    <Content Include="Images\XE_001_1.jpg" />
+    <Content Include="Images\XE_001_1.png" />
+    <Content Include="Images\XE_001_2.jpg" />
+    <Content Include="Images\XE_001_3.jpg" />
+    <Content Include="Images\XE_001_4.jpg" />
+    <Content Include="Images\XE_002_1.jpg" />
+    <Content Include="Images\XE_002_2.jpg" />
+    <Content Include="Images\XE_002_3.jpg" />
+    <Content Include="Images\XE_003_1.jpg" />
+    <Content Include="Images\XE_003_2.jpg" />
+    <Content Include="Images\XE_003_3.jpg" />
+    <Content Include="Images\XE_003_4.jpg" />
+    <Content Include="Images\XE_004_1.jpg" />
+    <Content Include="Images\XE_004_2.jpg" />
+    <Content Include="Images\XE_004_3.jpg" />
+    <Content Include="Images\XE_004_4.jpg" />
+    <Content Include="Images\XE_005_1.jpg" />
+    <Content Include="Images\XE_005_2.jpg" />
+    <Content Include="Images\XE_005_3.jpg" />
+    <Content Include="Images\XE_005_4.jpg" />
+    <Content Include="Images\XE_006_1.jpg" />
+    <Content Include="Images\XE_006_2.jpg" />
+    <Content Include="Images\XE_006_3.jpg" />
+    <Content Include="Images\XE_006_4.jpg" />
+    <Content Include="Images\XE_007_1.jpg" />
+    <Content Include="Images\XE_007_2.jpg" />
+    <Content Include="Images\XE_007_3.jpg" />
+    <Content Include="Images\XE_007_4.jpg" />
+    <Content Include="Images\XE_009_1.jpg" />
+    <Content Include="Images\XE_009_2.jpg" />
+    <Content Include="Images\XE_009_3.jpg" />
+    <Content Include="Images\XE_009_4.jpg" />
+    <Content Include="Images\XE_010_1.jpg" />
+    <Content Include="Images\XE_010_2.jpg" />
+    <Content Include="Images\XE_010_3.jpg" />
+    <Content Include="Images\XE_010_4.jpg" />
+    <Content Include="Images\XE_014_1.jpg" />
+    <Content Include="Images\XE_014_3.jpg" />
+    <Content Include="Images\XE_014_4.jpg" />
+    <Content Include="Images\XE_014__2.jpg" />
+    <Content Include="Images\XE_016_1.jpg" />
+    <Content Include="Images\XE_016_2.jpg" />
+    <Content Include="Images\XE_016_3.jpg" />
+    <Content Include="Images\XE_016_4.jpg" />
+    <Content Include="Images\XE_017_1.jpg" />
+    <Content Include="Images\XE_017_2.jpg" />
+    <Content Include="Images\XE_017_3.jpg" />
+    <Content Include="Images\XE_017_4.jpg" />
+    <Content Include="Images\XE_018_1.jpg" />
+    <Content Include="Images\XE_018_2.jpg" />
+    <Content Include="Images\XE_018_4.jpg" />
+    <Content Include="Images\XE_018__3.jpg" />
+    <Content Include="Images\XE_019_1.jpg" />
+    <Content Include="Images\XE_019_2.jpg" />
+    <Content Include="Images\XE_019_3.jpg" />
+    <Content Include="Images\XE_019_4.jpg" />
+    <Content Include="Models\DataXe.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Data.edmx</DependentUpon>
-      <LastGenOutput>Data.Context.cs</LastGenOutput>
+      <DependentUpon>DataXe.edmx</DependentUpon>
+      <LastGenOutput>DataXe.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\Data.tt">
+    <Content Include="Models\DataXe.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Data.edmx</DependentUpon>
-      <LastGenOutput>Data.cs</LastGenOutput>
+      <DependentUpon>DataXe.edmx</DependentUpon>
+      <LastGenOutput>DataXe.cs</LastGenOutput>
     </Content>
     <Content Include="Web.config" />
   </ItemGroup>
@@ -171,52 +260,52 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BaoHanhXe.cs">
-      <DependentUpon>Data.tt</DependentUpon>
+      <DependentUpon>DataXe.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Data.Context.cs">
+    <Compile Include="Models\DataXe.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Data.Context.tt</DependentUpon>
+      <DependentUpon>DataXe.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Data.cs">
+    <Compile Include="Models\DataXe.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Data.tt</DependentUpon>
+      <DependentUpon>DataXe.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Data.Designer.cs">
+    <Compile Include="Models\DataXe.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Data.edmx</DependentUpon>
+      <DependentUpon>DataXe.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\DichVu.cs">
-      <DependentUpon>Data.tt</DependentUpon>
+      <DependentUpon>DataXe.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\HoaDonBanHang.cs">
-      <DependentUpon>Data.tt</DependentUpon>
+      <DependentUpon>DataXe.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\HopDongMuaBan.cs">
-      <DependentUpon>Data.tt</DependentUpon>
+      <DependentUpon>DataXe.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\KhachHang.cs">
-      <DependentUpon>Data.tt</DependentUpon>
+      <DependentUpon>DataXe.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\NhaCungCap.cs">
-      <DependentUpon>Data.tt</DependentUpon>
+      <DependentUpon>DataXe.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\NhanVien.cs">
-      <DependentUpon>Data.tt</DependentUpon>
+      <DependentUpon>DataXe.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PhieuNhapKho.cs">
-      <DependentUpon>Data.tt</DependentUpon>
+      <DependentUpon>DataXe.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PhieuXuatKho.cs">
-      <DependentUpon>Data.tt</DependentUpon>
+      <DependentUpon>DataXe.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TaiKhoan.cs">
-      <DependentUpon>Data.tt</DependentUpon>
+      <DependentUpon>DataXe.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Xe.cs">
-      <DependentUpon>Data.tt</DependentUpon>
+      <DependentUpon>DataXe.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -232,12 +321,12 @@
     <Content Include="Content\bootstrap\js\bootstrap.bundle.min.js.map" />
     <Content Include="Content\bootstrap\js\bootstrap.js.map" />
     <Content Include="Content\bootstrap\js\bootstrap.min.js.map" />
-    <EntityDeploy Include="Models\Data.edmx">
+    <EntityDeploy Include="Models\DataXe.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Data.Designer.cs</LastGenOutput>
+      <LastGenOutput>DataXe.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\Data.edmx.diagram">
-      <DependentUpon>Data.edmx</DependentUpon>
+    <Content Include="Models\DataXe.edmx.diagram">
+      <DependentUpon>DataXe.edmx</DependentUpon>
     </Content>
     <Content Include="Fonts\Mercedes Benz.woff2" />
     <None Include="packages.config" />
@@ -245,9 +334,6 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\SanPham.cshtml" />
     <Content Include="Views\Home\ChiTietSanPham.cshtml" />
-    <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Shared\DanhSachXe.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

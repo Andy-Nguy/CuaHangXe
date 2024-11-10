@@ -32,6 +32,11 @@ namespace CuaHangXe_Test2.Models
         public Nullable<int> NamSanXuat { get; set; }
         public Nullable<decimal> GiaBanXe { get; set; }
         public string HinhAnh { get; set; }
+        public string HinhAnh2 { get; set; }
+        public string HinhAnh3 { get; set; }
+        public string HinhAnh4 { get; set; }
+        public string MoTa { get; set; }
+        public string TrangThai { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BaoHanhXe> BaoHanhXes { get; set; }
