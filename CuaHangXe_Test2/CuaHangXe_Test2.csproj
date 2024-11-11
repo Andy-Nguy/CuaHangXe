@@ -103,17 +103,30 @@
     </Content>
     <Content Include="Content\bootstrap\css\bootstrap-grid.css" />
     <Content Include="Content\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap\css\bootstrap-grid.rtl.css" />
+    <Content Include="Content\bootstrap\css\bootstrap-grid.rtl.min.css" />
     <Content Include="Content\bootstrap\css\bootstrap-reboot.css" />
     <Content Include="Content\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap\css\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\bootstrap\css\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\bootstrap\css\bootstrap-utilities.css" />
+    <Content Include="Content\bootstrap\css\bootstrap-utilities.min.css" />
+    <Content Include="Content\bootstrap\css\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\bootstrap\css\bootstrap-utilities.rtl.min.css" />
     <Content Include="Content\bootstrap\css\bootstrap.css" />
     <Content Include="Content\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\bootstrap\css\bootstrap.rtl.css" />
+    <Content Include="Content\bootstrap\css\bootstrap.rtl.min.css" />
     <Content Include="Content\bootstrap\js\bootstrap.bundle.js" />
     <Content Include="Content\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="Content\bootstrap\js\bootstrap.esm.js" />
+    <Content Include="Content\bootstrap\js\bootstrap.esm.min.js" />
     <Content Include="Content\bootstrap\js\bootstrap.js" />
     <Content Include="Content\bootstrap\js\bootstrap.min.js" />
-    <Content Include="Content\bootstrap\js\jquery-3.3.1.min.js" />
+    <Content Include="Content\close.svg" />
     <Content Include="Content\font.css" />
     <Content Include="Content\main.css" />
+    <Content Include="Content\menu.svg" />
     <Content Include="Content\script.js" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
@@ -128,6 +141,7 @@
     <Content Include="Images\732fa2_8a33cfd9076f4a728e13b51f16f2efed~mv2.jpg" />
     <Content Include="Images\audiR8.jpg" />
     <Content Include="Images\August-Motorcars-Supercar-Showroom.jpg" />
+    <Content Include="Images\close.jpg" />
     <Content Include="Images\corvette.jpg" />
     <Content Include="Images\dc35efe6a78d48e99fc915c167249cfd.jpg" />
     <Content Include="Images\DS102853_480x480.jpg" />
@@ -145,8 +159,10 @@
     <Content Include="Images\images.jpg" />
     <Content Include="Images\lamborghini-urus-16875333912111624025262-75-0-1080-1920-crop-1687533407701316181641.jpg" />
     <Content Include="Images\logo-ferrari-3.jpg" />
+    <Content Include="Images\logoautodrive.jpg" />
     <Content Include="Images\mayback.jpg" />
     <Content Include="Images\mc20-hero.jpg" />
+    <Content Include="Images\menu.jpg" />
     <Content Include="Images\New-2020-Lamborghini-Aventador-SVJ-Roadster-1597949125 %281%29.jpg" />
     <Content Include="Images\peguni-03-scaled.jpg" />
     <Content Include="Images\r.jpg" />
@@ -311,16 +327,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
-    <Content Include="Content\bootstrap\css\bootstrap-grid.css.map" />
-    <Content Include="Content\bootstrap\css\bootstrap-grid.min.css.map" />
-    <Content Include="Content\bootstrap\css\bootstrap-reboot.css.map" />
-    <Content Include="Content\bootstrap\css\bootstrap-reboot.min.css.map" />
-    <Content Include="Content\bootstrap\css\bootstrap.css.map" />
-    <Content Include="Content\bootstrap\css\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap\js\bootstrap.bundle.js.map" />
-    <Content Include="Content\bootstrap\js\bootstrap.bundle.min.js.map" />
-    <Content Include="Content\bootstrap\js\bootstrap.js.map" />
-    <Content Include="Content\bootstrap\js\bootstrap.min.js.map" />
     <Content Include="Fonts\Mercedes Benz.woff2" />
     <EntityDeploy Include="Models\SieuXeData.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -329,11 +335,34 @@
     <Content Include="Models\SieuXeData.edmx.diagram">
       <DependentUpon>SieuXeData.edmx</DependentUpon>
     </Content>
+    <Content Include="Content\bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="Content\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap\css\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\bootstrap\css\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap\css\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\bootstrap\css\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\bootstrap\css\bootstrap-utilities.css.map" />
+    <Content Include="Content\bootstrap\css\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\bootstrap\css\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\bootstrap\css\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Content\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap\css\bootstrap.rtl.css.map" />
+    <Content Include="Content\bootstrap\css\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\bootstrap\js\bootstrap.bundle.js.map" />
+    <Content Include="Content\bootstrap\js\bootstrap.bundle.min.js.map" />
+    <Content Include="Content\bootstrap\js\bootstrap.esm.js.map" />
+    <Content Include="Content\bootstrap\js\bootstrap.esm.min.js.map" />
+    <Content Include="Content\bootstrap\js\bootstrap.js.map" />
+    <Content Include="Content\bootstrap\js\bootstrap.min.js.map" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_LayoutPage1.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\SanPham.cshtml" />
     <Content Include="Views\Home\ChiTietSanPham.cshtml" />
+    <Content Include="Views\Shared\DanhSachXe.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
