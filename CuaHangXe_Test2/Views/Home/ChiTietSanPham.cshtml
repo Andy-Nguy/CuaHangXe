@@ -6,8 +6,8 @@
 }
 <link href="~/Content/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 
-<h2>Chi Tiết</h2>
-
+@*<h2>Liên hệ để biết thêm chi tiết từng sản phẩm</h2>*@
+<p  style="font-size:30px; text-indent: 35px; padding-top: 40px">Liên hệ để biết thêm chi tiết từng sản phẩm</p>
 
 <style>
     /* Custom Styles */
@@ -81,6 +81,10 @@
         border-top: 1px solid #dee2e6;
         margin: 15px 0;
     }
+    .col-lg-5 {
+        position:relative;
+        right:16px;
+    }
 </style>
 <body>
 
@@ -92,13 +96,13 @@
                 <!-- Thumbnail Images Below Main Image -->
                 <div class="product-thumbnails">
                     <div class="product-thumbnail">
-                        <img  src="~/Images/@Html.DisplayFor(model => model.HinhAnh)" alt="Thumbnail 1" onclick="changeImage(this)">
+                        <img src="~/Images/@Html.DisplayFor(model => model.HinhAnh)" alt="Thumbnail 1" onclick="changeImage(this)">
                     </div>
                     <div class="product-thumbnail">
-                        <img  src="~/Images/@Html.DisplayFor(model => model.HinhAnh2)" alt="Thumbnail 2" onclick="changeImage(this)">
+                        <img src="~/Images/@Html.DisplayFor(model => model.HinhAnh2)" alt="Thumbnail 2" onclick="changeImage(this)">
                     </div>
                     <div class="product-thumbnail">
-                        <img  src="~/Images/@Html.DisplayFor(model => model.HinhAnh3)" alt="Thumbnail 3" onclick="changeImage(this)">
+                        <img src="~/Images/@Html.DisplayFor(model => model.HinhAnh3)" alt="Thumbnail 3" onclick="changeImage(this)">
                     </div>
                     <div class="product-thumbnail">
                         <img src="~/Images/@Html.DisplayFor(model => model.HinhAnh4)" alt="Thumbnail 4" onclick="changeImage(this)">
@@ -117,7 +121,12 @@
 
                 <!-- Order Buttons -->
                 <div class="order-button-spacing">
-                    <a href="#" class="btn btn-danger btn-custom">Đặt mua</a>
+                    <a href="@Url.Action("NhapThongTinHopDong", "Home", new { maXe = Model.MaXe })" class="btn btn-danger btn-custom">
+                        Đặt mua
+                    </a>
+
+
+
                     <button class="btn btn-dark btn-custom">Đặt hàng</button>
                 </div>
 
@@ -137,7 +146,13 @@
         </div>
     </div>
 
-     JavaScript to handle image switching 
+
+
+
+
+
+    
+    @*JavaScript to handle image switching*@
     <script>
         function changeImage(element) {
             // Lấy đường dẫn ảnh từ thumbnail được click
