@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@{ 
+    var tenNVDangDangNhap = HttpUtility.UrlDecode(Context.Request.Cookies["name"]?.Value, System.Text.Encoding.UTF8);
+
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -63,9 +67,21 @@
                 </div>
 
                 <div class="box-user" style="">
-                    <a href="">
-                        <i class="fa-regular fa-user user"></i>
-                    </a>
+                    @{
+                        if (tenNVDangDangNhap == null)
+                        {
+                            <a href="/User/Login">
+                                <i class="fa-regular fa-user user"></i>
+                            </a>
+                        }
+                        else
+                        {
+                            <a href="/Home/SanPham">
+                                <i class="fa-regular fa-user user"></i>
+                            </a>
+                        }
+                    }
+
                 </div>
             </div>
         </div>
@@ -96,7 +112,7 @@
         <script src="~/Content/script.js"></script>
     </div>
 
-    
+
     <script type="text/javascript">
         const toggleMenu = () => {
             document.querySelector('.navbar-burger').classList.toggle('open');  // Xoay burger

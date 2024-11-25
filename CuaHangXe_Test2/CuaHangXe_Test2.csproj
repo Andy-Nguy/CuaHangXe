@@ -126,9 +126,9 @@
     <Content Include="Content\close.svg" />
     <Content Include="Content\font.css" />
     <Content Include="Content\main.css" />
-    <Content Include="Content\menu.svg" />
     <Content Include="Content\script.js" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\Style.css" />
     <Content Include="Global.asax" />
     <Content Include="Images\1.jpg" />
     <Content Include="Images\1Screenshot 2024-11-08 102958.jpg" />
@@ -271,6 +271,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NhanVienController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -361,6 +362,10 @@
     <Content Include="Views\Home\ChiTietSanPham.cshtml" />
     <Content Include="Views\Shared\DanhSachXe.cshtml" />
     <Content Include="Views\Home\NhapThongTinHopDong.cshtml" />
+    <Content Include="Views\Shared\_LayoutDangKy.cshtml" />
+    <Content Include="Views\Shared\_LayoutDangNhap.cshtml" />
+    <Content Include="Views\User\Login.cshtml" />
+    <Content Include="Views\User\Register.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -369,7 +374,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\User\" />
+    <Folder Include="Views\NhanVien\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
