@@ -19,7 +19,6 @@ namespace CuaHangXe_Test2.Models
         {
             this.HopDongMuaBans = new HashSet<HopDongMuaBan>();
             this.PhieuXuatKhoes = new HashSet<PhieuXuatKho>();
-            this.TaiKhoans = new HashSet<TaiKhoan>();
         }
     
         public string MaNhanVien { get; set; }
@@ -28,12 +27,13 @@ namespace CuaHangXe_Test2.Models
         public string DiaChiNhanVien { get; set; }
         public string SoDienThoaiNhanVien { get; set; }
         public string EmailNhanVien { get; set; }
+        public string TenDangNhap { get; set; }
+        public string MatKhau { get; set; }
+        public string VaiTro { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HopDongMuaBan> HopDongMuaBans { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PhieuXuatKho> PhieuXuatKhoes { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TaiKhoan> TaiKhoans { get; set; }
     }
 }

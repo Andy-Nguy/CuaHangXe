@@ -5,7 +5,10 @@ CREATE TABLE NhanVien (
     ChucVuNhanVien NVARCHAR(50),
     DiaChiNhanVien NVARCHAR(50),
     SoDienThoaiNhanVien NVARCHAR(15),
-    EmailNhanVien NVARCHAR(100)
+    EmailNhanVien NVARCHAR(100),
+    TenDangNhap NVARCHAR(50),
+    MatKhau NVARCHAR(50),
+    VaiTro NVARCHAR(50),
 );
 -- Bảng KhachHang
 CREATE TABLE KhachHang (
@@ -35,7 +38,12 @@ CREATE TABLE Xe (
     MauSac NVARCHAR(50),
     NamSanXuat int,
     GiaBanXe DECIMAL(20),
-    HinhAnh NVARCHAR(200)
+    HinhAnh NVARCHAR(200),
+    HinhAnh2 NVARCHAR(200),
+    HinhAnh3 NVARCHAR(200),
+    HinhAnh4 NVARCHAR(200),
+    MoTa NVARCHAR(500),
+    TrangThai NVARCHAR(50)
 );
 
 -- Bảng PhieuNhapKho
@@ -91,17 +99,6 @@ CREATE TABLE HoaDonBanHang (
     FOREIGN KEY (MaHopDong) REFERENCES HopDongMuaBan(MaHopDong)
 );
 
-
--- Bảng TaiKhoan
-CREATE TABLE TaiKhoan (
-    MaTaiKhoan NCHAR(10) PRIMARY KEY,
-    TenDangNhap NVARCHAR(50),
-    MatKhau NVARCHAR(50),
-    VaiTro NVARCHAR(50),
-    MaNhanVien NCHAR(10),
-    FOREIGN KEY (MaNhanVien) REFERENCES NhanVien(MaNhanVien)
-);
-
 -- Bảng DichVu
 CREATE TABLE DichVu (
     MaDichVu NCHAR(10) PRIMARY KEY,
@@ -132,9 +129,9 @@ INSERT [dbo].[NhaCungCap] ([MaNhaCungCap], [TenNhaCungCap], [DiaChiNhaCungCap], 
 INSERT [dbo].[NhaCungCap] ([MaNhaCungCap], [TenNhaCungCap], [DiaChiNhaCungCap], [SoDienThoaiNhaCungCap], [EmailNhaCungCap]) VALUES (N'NCC004    ', N'Lamborghini Hồ Chí Minh', N'Ks.Hilton,11Công Trường Mê Kinh, Q1,TpHCM,Vietnam', N'84 859 180 088', N'lamborghinivnn@gmail.com')
 GO
 INSERT [dbo].[Xe] ([MaXe], [TenXe], [HangXe], [DongXe], [SoKhungXe], [MauSac], [NamSanXuat], [GiaBanXe], [HinhAnh]) VALUES (N'XE001     ', N'Ford GT Heritage Edition', N'Ford', N'Hypercar', N'fo001', N'Trắng', 2021, CAST(1436462 AS Decimal(20, 0)), N'fordgt.jpg')
-INSERT [dbo].[Xe] ([MaXe], [TenXe], [HangXe], [DongXe], [SoKhungXe], [MauSac], [NamSanXuat], [GiaBanXe], [HinhAnh]) VALUES (N'XE0011    ', N'2024 Lamborghini Urus', N'Lamborghini', N'SUV', N'la002', N'Vàng', 2024, CAST(241843 AS Decimal(20, 0)), N'renazzo-lamborghini-urus-performante-unveiled-thailand-motor-expo-2022-7-16699859694741013805461-crop-16699861242161368888932.jpg')
-INSERT [dbo].[Xe] ([MaXe], [TenXe], [HangXe], [DongXe], [SoKhungXe], [MauSac], [NamSanXuat], [GiaBanXe], [HinhAnh]) VALUES (N'XE0012    ', N'2022 Lamborghini Aventador SVJ ', N'Lamborghini', N'Supercar', N'la003', N'Vàng', 2022, CAST(562000 AS Decimal(20, 0)), N'New-2020-Lamborghini-Aventador-SVJ-Roadster-1597949125 (1).jpg')
-INSERT [dbo].[Xe] ([MaXe], [TenXe], [HangXe], [DongXe], [SoKhungXe], [MauSac], [NamSanXuat], [GiaBanXe], [HinhAnh]) VALUES (N'XE0013    ', N'2022 Lamborghini Revuelto', N'Lamborghini', N'Supercar', N'la004', N'Xanh', 2024, CAST(574495 AS Decimal(20, 0)), N'2024-lamborghini-revuelto-review.jpg')
+INSERT [dbo].[Xe] ([MaXe], [TenXe], [HangXe], [DongXe], [SoKhungXe], [MauSac], [NamSanXuat], [GiaBanXe], [HinhAnh]) VALUES (N'XE011    ', N'2024 Lamborghini Urus', N'Lamborghini', N'SUV', N'la002', N'Vàng', 2024, CAST(241843 AS Decimal(20, 0)), N'renazzo-lamborghini-urus-performante-unveiled-thailand-motor-expo-2022-7-16699859694741013805461-crop-16699861242161368888932.jpg')
+INSERT [dbo].[Xe] ([MaXe], [TenXe], [HangXe], [DongXe], [SoKhungXe], [MauSac], [NamSanXuat], [GiaBanXe], [HinhAnh]) VALUES (N'XE012    ', N'2022 Lamborghini Aventador SVJ ', N'Lamborghini', N'Supercar', N'la003', N'Vàng', 2022, CAST(562000 AS Decimal(20, 0)), N'New-2020-Lamborghini-Aventador-SVJ-Roadster-1597949125 (1).jpg')
+INSERT [dbo].[Xe] ([MaXe], [TenXe], [HangXe], [DongXe], [SoKhungXe], [MauSac], [NamSanXuat], [GiaBanXe], [HinhAnh]) VALUES (N'XE013    ', N'2022 Lamborghini Revuelto', N'Lamborghini', N'Supercar', N'la004', N'Xanh', 2024, CAST(574495 AS Decimal(20, 0)), N'2024-lamborghini-revuelto-review.jpg')
 INSERT [dbo].[Xe] ([MaXe], [TenXe], [HangXe], [DongXe], [SoKhungXe], [MauSac], [NamSanXuat], [GiaBanXe], [HinhAnh]) VALUES (N'XE002     ', N'Pagani Huayra', N'Pagani', N'Hypercar', N'pa001', N'Xám', 2014, CAST(4000125 AS Decimal(20, 0)), N'640-sieu-xe-Pagani-Huayra-BC.jpg')
 INSERT [dbo].[Xe] ([MaXe], [TenXe], [HangXe], [DongXe], [SoKhungXe], [MauSac], [NamSanXuat], [GiaBanXe], [HinhAnh]) VALUES (N'XE003     ', N'Ferrari SF90 Stradale', N'Ferrari', N'Supercar', N'fe001', N'Đỏ', 2021, CAST(464900 AS Decimal(20, 0)), N'sf90.jpg')
 INSERT [dbo].[Xe] ([MaXe], [TenXe], [HangXe], [DongXe], [SoKhungXe], [MauSac], [NamSanXuat], [GiaBanXe], [HinhAnh]) VALUES (N'XE004     ', N' 2024 Lamborghini Huracán Tecnica', N'Lamborghini', N'Supercar', N'la001', N'Đen', 2020, CAST(248995 AS Decimal(20, 0)), N'Screenshot 2024-11-07 211457.jpg')
@@ -151,4 +148,177 @@ INSERT [dbo].[Xe] ([MaXe], [TenXe], [HangXe], [DongXe], [SoKhungXe], [MauSac], [
 INSERT [dbo].[Xe] ([MaXe], [TenXe], [HangXe], [DongXe], [SoKhungXe], [MauSac], [NamSanXuat], [GiaBanXe], [HinhAnh]) VALUES (N'XE018     ', N'2024 Ferrari MC20', N'Maserati', N'Supercar', N'mc002', N'Trắng', 2024, CAST(243095 AS Decimal(20, 0)), N'mc20-hero.jpg')
 INSERT [dbo].[Xe] ([MaXe], [TenXe], [HangXe], [DongXe], [SoKhungXe], [MauSac], [NamSanXuat], [GiaBanXe], [HinhAnh]) VALUES (N'XE019     ', N'2024 Maserati Levante Trofeo', N'Maserati', N'SUV', N'mc003', N'Trắng', 2024, CAST(839995 AS Decimal(20, 0)), N'ea047f6136a932aceb21459f111aa058.jpg')
 GO
-select * from Xe
+
+
+UPDATE Xe
+SET 
+    HinhAnh2 = 'XE_001_1.jpg',
+    HinhAnh3 = 'XE_001_2.jpg',
+    HinhAnh4 = 'XE_001_4.jpg',
+    MoTa = N'EcoBoost V6,647Hp,745Nm',
+    TrangThai = N'Xe mới,Bản giới hạn'
+WHERE MaXe = N'XE001';
+
+UPDATE Xe
+SET 
+    HinhAnh2 = 'XE_003_1.jpg',
+    HinhAnh3 = 'XE_003_2.jpg',
+    HinhAnh4 = 'XE_003_4.jpg',
+    MoTa = N'V8,hybrid,986Hp,800 Nm',
+    TrangThai = N'Xe mới'
+WHERE MaXe = N'XE003';
+
+UPDATE Xe
+SET 
+    HinhAnh2 = 'XE_004_4.jpg',
+    HinhAnh3 = 'XE_004_2.jpg',
+    HinhAnh4 = 'XE_004_3.jpg',
+    MoTa = N'V10,640 Hp,565 Nm',
+    TrangThai = N'Xe mới'
+WHERE MaXe = N'XE004';
+
+UPDATE Xe
+SET 
+    HinhAnh2 = 'XE_005_1.jpg',
+    HinhAnh3 = 'XE_005_2.jpg',
+    HinhAnh4 = 'XE_005_4.jpg',
+    MoTa = N'V10,620 Hp,585 Nm',
+    TrangThai = N'Xe mới'
+WHERE MaXe = N'XE005';
+
+UPDATE Xe
+SET 
+    HinhAnh2 = 'XE_006_1.jpg',
+    HinhAnh3 = 'XE_006_2.jpg',
+    HinhAnh4 = 'XE_006_3.jpg',
+    MoTa = N'V8,490 Hp,630 Nm',
+    TrangThai = N'Xe cũ,1200km'
+WHERE MaXe = N'XE006';
+UPDATE Xe
+SET 
+    HinhAnh2 = 'XE_007_1.jpg',
+    HinhAnh3 = 'XE_007_2.jpg',
+    HinhAnh4 = 'XE_007_4.jpg',
+    MoTa = N'AMG V8,536 Hp,530 Nm',
+    TrangThai = N'Xe cũ,1200km'
+WHERE MaXe = N'XE007';
+
+UPDATE Xe
+SET 
+    HinhAnh2 = 'XE008_1.jpg',
+    HinhAnh3 = 'XE008__2.jpg',
+    HinhAnh4 = 'XE008_3.jpg',
+    MoTa = N'6.7L V12,572Hp,850Nm',
+    TrangThai = N'Xe mới'
+WHERE MaXe = N'XE008';
+UPDATE Xe
+SET 
+    HinhAnh2 = 'XE_009_1.jpg',
+    HinhAnh3 = 'XE_009_2.jpg',
+    HinhAnh4 = 'XE_009_4.jpg',
+    MoTa = N'V12,612Hp,900Nm',
+    TrangThai = N'Xe mới'
+WHERE MaXe = N'XE009';
+
+UPDATE Xe
+SET 
+    HinhAnh2 = 'XE_010_1.jpg',
+    HinhAnh3 = 'XE_010_2.jpg',
+    HinhAnh4 = 'XE_010_4.jpg',
+    MoTa = N'6.6L V12,562Hp,780Nm',
+    TrangThai = N'Xe mới'
+WHERE MaXe = N'XE010';
+
+UPDATE Xe
+SET 
+    HinhAnh2 = 'XE_0011_1.jpg',
+    HinhAnh3 = 'XE_0011_2.jpg',
+    HinhAnh4 = 'XE_0011_3.jpg',
+    MoTa = N'4.0L V10,650Hp,850Nm',
+    TrangThai = N'Xe mới'
+WHERE MaXe = N'XE011';
+
+
+UPDATE Xe
+SET 
+    HinhAnh2 = 'XE_0012_1.jpg',
+    HinhAnh3 = 'XE_0012_2.jpg',
+    HinhAnh4 = 'XE_0012_4.jpg',
+    MoTa = N'6.5L V12,770Hp,880Nm',
+    TrangThai = N'Xe mới'
+WHERE MaXe = N'XE012';
+
+UPDATE Xe
+SET 
+    HinhAnh2 = 'Xe0013_1.jpg',
+    HinhAnh3 = 'Xe0013_2.jpg',
+    HinhAnh4 = 'Xe0013_4.jpg',
+    MoTa = N'V12 Hybrid,1.001Hp,1.062Nm',
+    TrangThai = N'Xe mới'
+WHERE MaXe = N'XE013';
+
+UPDATE Xe
+SET 
+    HinhAnh2 = 'XE_014_1.jpg',
+    HinhAnh3 = 'XE_014_3.jpg',
+    HinhAnh4 = 'XE_014_4.jpg',
+    MoTa = N'V12,789 Hp,718 Nm',
+    TrangThai = N'Xe cũ,8000Miles'
+WHERE MaXe = N'XE014';
+
+
+UPDATE Xe
+SET 
+    HinhAnh2 = 'XE015_1.jpg',
+    HinhAnh3 = 'XE015_2.jpg',
+    HinhAnh4 = 'XE015_3.jpg',
+    MoTa = N'V6 Hybrid,819Hp,740Nm',
+    TrangThai = N'Xe mới'
+WHERE MaXe = N'XE015';
+
+UPDATE Xe
+SET 
+    HinhAnh2 = 'XE_016_1.jpg',
+    HinhAnh3 = 'XE_016_2.jpgg',
+    HinhAnh4 = 'XE_016_3.jpg',
+    MoTa = N'6.5L V12,715 Hp,716 Nm',
+    TrangThai = N'Xe mới'
+WHERE MaXe = N'XE016';
+
+UPDATE Xe
+SET 
+    HinhAnh2 = 'XE_017_1.jpg',
+    HinhAnh3 = 'XE_017_2.jpgg',
+    HinhAnh4 = 'XE_017_3.jpg',
+    MoTa = N'4.7L V8,460 Hp,550 Nm',
+    TrangThai = N'Xe cũ,2200Miles'
+WHERE MaXe = N'XE017';
+
+
+UPDATE Xe
+SET 
+    HinhAnh2 = 'XE_018_1.jpg',
+    HinhAnh3 = 'XE_018__3.jpg',
+    HinhAnh4 = 'XE_018_4.jpg',
+    MoTa = N'3.0L V6,621 Hp,730 Nm',
+    TrangThai = N'Xe mới'
+WHERE MaXe = N'XE018';
+
+UPDATE Xe
+SET 
+    HinhAnh2 = 'XE_019_1.jpg',
+    HinhAnh3 = 'XE_019_2.jpgg',
+    HinhAnh4 = 'XE_019_4.jpg',
+    MoTa = N'3.0L V6.,350 Hp,500 Nm',
+    TrangThai = N'Xe mới'
+WHERE MaXe = N'XE019';
+
+UPDATE Xe
+SET 
+    HinhAnh2 = 'XE_002_1.jpg',
+    HinhAnh3 = 'XE_002_2.jpg',
+    HinhAnh4 = 'XE_002_3.jpg',
+    MoTa = N'V12 6.0L.,730Hp1000 Nm',
+    TrangThai = N'Xe cũ,bản giới hạn'
+WHERE MaXe = N'XE002';
+

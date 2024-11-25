@@ -97,9 +97,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\SieuXeDbmdf.mdf" />
-    <Content Include="App_Data\SieuXeDbmdf_log.ldf">
-      <DependentUpon>SieuXeDbmdf.mdf</DependentUpon>
+    <Content Include="App_Data\SieuXeDb.mdf" />
+    <Content Include="App_Data\SieuXeDb_log.ldf">
+      <DependentUpon>SieuXeDb.mdf</DependentUpon>
     </Content>
     <Content Include="Content\bootstrap\css\bootstrap-grid.css" />
     <Content Include="Content\bootstrap\css\bootstrap-grid.min.css" />
@@ -169,7 +169,6 @@
     <Content Include="Images\renazzo-lamborghini-urus-performante-unveiled-thailand-motor-expo-2022-7-16699859694741013805461-crop-16699861242161368888932.jpg" />
     <Content Include="Images\rolls-royce-ghost-black.jpg" />
     <Content Include="Images\Screenshot 2024-11-03 083812.jpg" />
-    <Content Include="Images\Screenshot 2024-11-03 153608.jpg" />
     <Content Include="Images\Screenshot 2024-11-07 211457.jpg" />
     <Content Include="Images\Screenshot 2024-11-07 212609.jpg" />
     <Content Include="Images\Screenshot 2024-11-07 212831.jpg" />
@@ -265,13 +264,14 @@
     <Content Include="Models\SieuXeData.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>SieuXeData.edmx</DependentUpon>
-      <LastGenOutput>SieuXeData1.cs</LastGenOutput>
+      <LastGenOutput>SieuXeData.cs</LastGenOutput>
     </Content>
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -307,18 +307,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SieuXeData.Context.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\SieuXeData.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SieuXeData.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\SieuXeData.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
       <DependentUpon>SieuXeData.edmx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="Models\SieuXeData1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SieuXeData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TaiKhoan.cs">
-      <DependentUpon>SieuXeData.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Xe.cs">
       <DependentUpon>SieuXeData.tt</DependentUpon>
@@ -328,13 +325,6 @@
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="Fonts\Mercedes Benz.woff2" />
-    <EntityDeploy Include="Models\SieuXeData.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>SieuXeData.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\SieuXeData.edmx.diagram">
-      <DependentUpon>SieuXeData.edmx</DependentUpon>
-    </Content>
     <Content Include="Content\bootstrap\css\bootstrap-grid.css.map" />
     <Content Include="Content\bootstrap\css\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap\css\bootstrap-grid.rtl.css.map" />
@@ -357,6 +347,13 @@
     <Content Include="Content\bootstrap\js\bootstrap.esm.min.js.map" />
     <Content Include="Content\bootstrap\js\bootstrap.js.map" />
     <Content Include="Content\bootstrap\js\bootstrap.min.js.map" />
+    <EntityDeploy Include="Models\SieuXeData.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SieuXeData.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\SieuXeData.edmx.diagram">
+      <DependentUpon>SieuXeData.edmx</DependentUpon>
+    </Content>
     <None Include="packages.config" />
     <Content Include="Views\Shared\_LayoutPage1.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -371,7 +368,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\User\" />
+  </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
