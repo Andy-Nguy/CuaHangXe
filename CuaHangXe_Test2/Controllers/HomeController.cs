@@ -142,6 +142,8 @@ namespace CuaHangXe_Test2.Controllers
             }
             return View(nhaCungCapChiTiet);
         }
+       
+
         ////
     }
 }
