@@ -15,11 +15,13 @@ namespace CuaHangXe_Test2.Models
     public partial class DichVu
     {
         public string MaDichVu { get; set; }
-        public string MaKhachHang { get; set; }
+        public string TenDichVu { get; set; }
+        public string MoTaDichVu { get; set; }
         public Nullable<decimal> ChiPhiDichVu { get; set; }
+        public string ThoiGianThucHien { get; set; }
+        public string MaKhachHang { get; set; }
         public Nullable<System.DateTime> NgaySuDungDichVu { get; set; }
     
-        public virtual ThongTinDichVu ThongTinDichVu { get; set; }
         public virtual KhachHang KhachHang { get; set; }
     }
 }

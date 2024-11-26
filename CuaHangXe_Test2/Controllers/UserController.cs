@@ -22,7 +22,7 @@ namespace CuaHangXe_Test2.Controllers
         {
             if (nv != null)
             {
-                SieuXeDbEntities5 db = new SieuXeDbEntities5();
+                SieuXeDbEntities6 db = new SieuXeDbEntities6();
                 NhanVien nvCheck = db.NhanViens.Where(nvien => nvien.TenDangNhap == nv.TenDangNhap).FirstOrDefault();
                 if (nvCheck != null)
                 {
@@ -30,7 +30,7 @@ namespace CuaHangXe_Test2.Controllers
                     {
                         HttpCookie authCookie = new HttpCookie("auth", nvCheck.TenDangNhap);
                         HttpCookie nameCookie = new HttpCookie("name", HttpUtility.UrlEncode(nvCheck.TenNhanVien, System.Text.Encoding.UTF8));                        
-                        HttpCookie roleCookie = new HttpCookie("role", nvCheck.ChucVuNhanVien);
+                        HttpCookie roleCookie = new HttpCookie("role", nvCheck.VaiTro);
                         Response.Cookies.Add(authCookie);
                         Response.Cookies.Add(nameCookie);
                         Response.Cookies.Add(roleCookie);
@@ -39,7 +39,7 @@ namespace CuaHangXe_Test2.Controllers
                     }
                 }
             }
-            //ModelState.AddModelError("MatKhau", "Đăng nhập không thành công !");
+            ModelState.AddModelError("MatKhau", "Đăng nhập không thành công !");
             return View();
         }
         public ActionResult Logout()
@@ -69,14 +69,10 @@ namespace CuaHangXe_Test2.Controllers
         {
             if (nv != null)
             {
-                SieuXeDbEntities5 db = new SieuXeDbEntities5();
+                SieuXeDbEntities6 db = new SieuXeDbEntities6();
                 NhanVien nvCheck = db.NhanViens.Where(nvien=>nvien.TenDangNhap == nv.TenDangNhap).FirstOrDefault();
                 if (nvCheck == null)
                 {
-                    if (nv.ChucVuNhanVien.Equals("Quản lý"))
-                        nv.VaiTro = "admin";
-                    else
-                        nv.VaiTro = "user";
                     nv.MaNhanVien = TaoMaNV();
                     db.NhanViens.Add(nv);
                     db.SaveChanges();
@@ -87,7 +83,7 @@ namespace CuaHangXe_Test2.Controllers
         }
         public string TaoMaNV()
         {
-            SieuXeDbEntities5 db = new SieuXeDbEntities5();
+            SieuXeDbEntities6 db = new SieuXeDbEntities6();
             int soNVHienTai = db.NhanViens.ToList().Count;
             soNVHienTai++;
             return "NV" + soNVHienTai.ToString("D3");

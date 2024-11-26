@@ -2,7 +2,6 @@
 CREATE TABLE NhanVien (
     MaNhanVien NCHAR(10) PRIMARY KEY,
     TenNhanVien NVARCHAR(50),
-    ChucVuNhanVien NVARCHAR(50),
     DiaChiNhanVien NVARCHAR(50),
     SoDienThoaiNhanVien NVARCHAR(15),
     EmailNhanVien NVARCHAR(100),

@@ -11,7 +11,7 @@ namespace CuaHangXe_Test2.Filters
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             var roleCookie = HttpContext.Current.Request.Cookies["role"];
-            if (roleCookie == null || roleCookie.Value != "Quản lý")
+            if (roleCookie == null || roleCookie.Value != "admin")
             {
                 filterContext.Result = new RedirectResult("/User/Login");
             }

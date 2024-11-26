@@ -29,6 +29,7 @@
                     @Html.TextBoxFor(row => row.MatKhau, new { @class = "input-field", placeholder = " ", required = "required", type = "password" })
 
                     @Html.LabelFor(row => row.MatKhau, "Mật khẩu", new { @class = "label" })
+                    @Html.ValidationMessageFor(model => model.MatKhau, "", new { @class = "text-danger" })
                     <i class="bx bx-lock-alt icon"></i>
                 </div>
                 <div class="remember-forgot">
