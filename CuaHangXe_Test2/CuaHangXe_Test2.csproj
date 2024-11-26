@@ -386,6 +386,7 @@
     <Content Include="Views\NhanVien\Index.cshtml" />
     <Content Include="Views\NhanVien\QuanLyDonHang.cshtml" />
     <Content Include="Views\NhanVien\QuanLyNhanVien.cshtml" />
+    <Content Include="Views\Home\TinTuc.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
