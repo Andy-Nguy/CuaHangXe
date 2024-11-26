@@ -101,6 +101,7 @@
     <Content Include="App_Data\SieuXeDb_log.ldf">
       <DependentUpon>SieuXeDb.mdf</DependentUpon>
     </Content>
+    <Content Include="Content\animate.css" />
     <Content Include="Content\bootstrap\css\bootstrap-grid.css" />
     <Content Include="Content\bootstrap\css\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap\css\bootstrap-grid.rtl.css" />
@@ -124,11 +125,19 @@
     <Content Include="Content\bootstrap\js\bootstrap.js" />
     <Content Include="Content\bootstrap\js\bootstrap.min.js" />
     <Content Include="Content\close.svg" />
+    <Content Include="Content\datepicker.js" />
     <Content Include="Content\font.css" />
+    <Content Include="Content\jquery-ui.js" />
+    <Content Include="Content\jquery-ui.min.css" />
+    <Content Include="Content\jquery.easing.min.js" />
+    <Content Include="Content\jquery.min.js" />
     <Content Include="Content\main.css" />
+    <Content Include="Content\mainQLNV.css" />
+    <Content Include="Content\popper.min.js" />
     <Content Include="Content\script.js" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\Style.css" />
+    <Content Include="Content\styleQLNV.css" />
     <Content Include="Global.asax" />
     <Content Include="Images\1.jpg" />
     <Content Include="Images\1Screenshot 2024-11-08 102958.jpg" />
@@ -141,6 +150,7 @@
     <Content Include="Images\732fa2_8a33cfd9076f4a728e13b51f16f2efed~mv2.jpg" />
     <Content Include="Images\audiR8.jpg" />
     <Content Include="Images\August-Motorcars-Supercar-Showroom.jpg" />
+    <Content Include="Images\backgroundQuanLy.jpg" />
     <Content Include="Images\close.jpg" />
     <Content Include="Images\corvette.jpg" />
     <Content Include="Images\dc35efe6a78d48e99fc915c167249cfd.jpg" />
@@ -368,6 +378,8 @@
     <Content Include="Views\User\Register.cshtml" />
     <Content Include="Views\Home\NhaCungCap.cshtml" />
     <Content Include="Views\Home\ChiTietNhaCungCap.cshtml" />
+    <Content Include="Views\Shared\_LayoutNhanVien2.cshtml" />
+    <Content Include="Views\NhanVien\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -375,9 +387,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\NhanVien\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>

@@ -36,7 +36,7 @@ namespace CuaHangXe_Test2.Controllers
                         Response.Cookies.Add(nameCookie);
                         Response.Cookies.Add(roleCookie);
 
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Index", "NhanVien");
                     }
                 }
             }
