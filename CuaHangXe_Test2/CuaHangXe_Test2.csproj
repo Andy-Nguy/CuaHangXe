@@ -366,6 +366,8 @@
     <Content Include="Views\Shared\_LayoutDangNhap.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
     <Content Include="Views\User\Register.cshtml" />
+    <Content Include="Views\Home\NhaCungCap.cshtml" />
+    <Content Include="Views\Home\ChiTietNhaCungCap.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

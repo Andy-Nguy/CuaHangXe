@@ -126,7 +126,22 @@ namespace CuaHangXe_Test2.Controllers
             return "HD" + randomNumber.ToString(); // HD + số ngẫu nhiên
         }
 
+        public ActionResult NhaCungCap()
+        {
+            List<NhaCungCap> allNhaCungCaps = db.NhaCungCaps.ToList();
+            return View(allNhaCungCaps);
 
+        }
+        public ActionResult ChiTietNhaCungCap(string id)
+        {
+            //id = id.Trim();
+            var nhaCungCapChiTiet = db.NhaCungCaps.FirstOrDefault(x => x.MaNhaCungCap == id);
+            if (nhaCungCapChiTiet == null)
+            {
+                return HttpNotFound();
+            }
+            return View(nhaCungCapChiTiet);
+        }
         ////
     }
 }

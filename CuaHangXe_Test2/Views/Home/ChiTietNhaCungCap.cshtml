@@ -1,0 +1,304 @@
+﻿@model CuaHangXe_Test2.Models.NhaCungCap
+@{
+    ViewBag.Title = "ChiTietNhaCungCap";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<style>
+    /* Jumbotron css */
+    .jumbotron {
+        padding: 4rem 2rem;
+        color: white;
+        background-image: url('@Url.Content("~/images/1.jpg")'); /* hình bỏ đại */
+        background-size: cover;
+        background-position: center;
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    .jumbotron h1 {
+        font-weight: bold;
+        font-size: 2.5rem;
+    }
+
+    .jumbotron p {
+        font-size: 1.2rem;
+    }
+
+    /* Card và image css */
+    .card {
+        border: none;
+        border-radius: 10px;
+        overflow: hidden;
+        transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+    }
+
+    .card img {
+        border-radius: 10px;
+        height: 300px;
+        object-fit: cover;
+    }
+
+    /* Button css */
+    .btn-black {
+        background-color: #000;
+        color: #fff;
+        font-weight: bold;
+        text-transform: uppercase;
+        border-radius: 5px;
+        padding: 0.75rem 1.25rem;
+    }
+
+    .btn-black:hover {
+        background-color: #333;
+    }
+
+    /* giới thiệu và cái lịch làm việc css*/
+    .info-section, .working-hours-section {
+        border: 2px solid #000;
+        padding: 20px;
+        margin-bottom: 30px;
+        border-radius: 10px;
+    }
+
+    /* Image  */
+    .image-gallery {
+        display: flex;
+        justify-content: space-between;
+        gap: 15px;
+    }
+
+    .image-gallery img {
+        width: 30%;
+        height: 200px;
+        object-fit: cover;
+        border: 2px solid #000;
+        border-radius: 10px;
+    }
+    /* Form css */
+    .form-container {
+        max-width: 500px;
+        margin: auto;
+        padding: 2rem;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+        margin-bottom: 1rem;
+    }
+
+    label {
+        font-weight: bold;
+    }
+
+    .form-control, .form-select {
+        border-radius: 5px;
+    }
+
+    .invalid-feedback {
+        color: red;
+    }
+    /* Button css */
+    .btn-submit {
+        background-color: #007bff;
+        color: white;
+        font-weight: bold;
+        border-radius: 5px;
+        padding: 0.5rem 1.5rem;
+    }
+
+        .btn-submit:hover {
+            background-color: #0056b3;
+        }
+
+    /* Terms section */
+    .terms-section {
+        font-size: 0.9rem;
+        margin-top: 1rem;
+    }
+</style>
+
+<div class="container my-5">
+    <!-- Jumbotron Header -->
+    <div class="jumbotron text-center">
+        <h1 class="display-4">@Model.TenNhaCungCap</h1>
+        <p class="lead">Đại lý siêu xe chính hãng cung cấp các dòng xe chất lượng cao.</p>
+    </div>
+
+
+    <div class="row mt-5">
+
+        <div class="col-md-6">
+            <h2 class="font-weight-bold">Thông tin liên hệ</h2>
+            <div class="info-section">
+                <ul class="list-unstyled mt-3">
+                    <li><strong>Địa chỉ:</strong> @Model.DiaChiNhaCungCap</li>
+                    <li><strong>Số điện thoại:</strong> @Model.SoDienThoaiNhaCungCap</li>
+                    <li><strong>Email:</strong> @Model.EmailNhaCungCap</li>
+                </ul>
+            </div>
+
+            <!-- nút liênn hệ -->
+            <a href="mailto:@Model.EmailNhaCungCap" class="btn btn-dark mt-3">Email Us</a>
+            <button onclick="shareLocation()" class="btn btn-secondary mt-3">Share Location</button>
+
+            <h4 class="mt-4 font-weight-bold">Giờ làm việc</h4>
+            <div class="working-hours-section">
+                <table class="table table-borderless">
+                    <tr><td>Monday</td><td>08:00 - 19:00</td></tr>
+                    <tr><td>Tuesday</td><td>08:00 - 19:00</td></tr>
+                    <tr><td>Wednesday</td><td>08:00 - 19:00</td></tr>
+                    <tr><td>Thursday</td><td>08:00 - 19:00</td></tr>
+                    <tr><td>Friday</td><td>08:00 - 19:00</td></tr>
+                    <tr><td>Saturday</td><td>08:00 - 17:00</td></tr>
+                    <tr><td>Sunday</td><td>08:00 - 17:00</td></tr>
+                </table>
+            </div>
+
+            <!-- trở về danh sách nhà cung cấp -->
+            <a href="@Url.Action("nhacungcap", "home")" class="btn btn-black mt-4 mb-4">Trở về danh sách</a>
+        </div>
+
+        <!-- Ảnh đại lý và Map -->
+        <div class="col-md-6">
+            <!-- ảnh đại lý -->
+            <div class="card mb-4">
+                <img src="@Url.Content("~/images/2.jpg")" alt="Hình ảnh đại lý" style="width: 100%; height: 300px; object-fit: cover;">
+            </div>
+
+            <!-- Map -->
+            <div class="card">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.8654529928285!2d105.76390831526348!3d21.02851179334992!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab4e27d4b83d%3A0xd7a454cbb4b7fbb2!2zQm13IFNhbGEgU2hvd3Jvb20!5e0!3m2!1svi!2s!4v1691241650620!5m2!1svi!2s"
+                        width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3 tấm hình xe -->
+    <div class="row mt-5">
+        <!-- Image 1 -->
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <img src="@Url.Content("~/images/Screenshot 2024-11-07 211457.jpg")" alt="Hình ảnh 1" class="card-img-top" style="height: 200px; object-fit: cover;">
+            </div>
+        </div>
+
+        <!-- Image 2 -->
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <img src="@Url.Content("~/images/640-sieu-xe-Pagani-Huayra-BC.jpg")" alt="Hình ảnh 2" class="card-img-top" style="height: 200px; object-fit: cover;">
+            </div>
+        </div>
+
+        <!-- Image 3 -->
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <img src="@Url.Content("~/images/Ferrari-SF90-XX-1-5118-1688351681.jpg")" alt="Hình ảnh 3" class="card-img-top" style="height: 200px; object-fit: cover;">
+            </div>
+        </div>
+    </div>
+
+    <!-- Form Section -->
+    <div class="form-container">
+        <h2 class="font-weight-bold mb-4">Đăng ký thông tin</h2>
+        <form>
+            <div class="form-group">
+                <label for="salutation">Danh xưng *</label>
+                <select class="form-select" id="salutation" required>
+                    <option value="">Please select ...</option>
+                    <option value="mr">Ông</option>
+                    <option value="mrs">Bà</option>
+                </select>
+                <div class="invalid-feedback">Vui lòng chọn danh xưng</div>
+            </div>
+
+            <div class="form-group">
+                <label for="firstName">Tên *</label>
+                <input type="text" class="form-control" id="firstName" required>
+                <div class="invalid-feedback">Vui lòng nhập Tên</div>
+            </div>
+
+            <div class="form-group">
+                <label for="lastName">Họ *</label>
+                <input type="text" class="form-control" id="lastName" required>
+                <div class="invalid-feedback">Vui lòng nhập Họ</div>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Số điện thoại *</label>
+                <input type="tel" class="form-control" id="phone" required>
+                <div class="invalid-feedback">Vui lòng nhập Số điện thoại</div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" class="form-control" id="email" required>
+                <div class="invalid-feedback">Vui lòng nhập Email</div>
+            </div>
+
+            <div class="form-group">
+                <label for="city">Thành phố/ Tỉnh *</label>
+                <select class="form-select" id="city" required>
+                    <option value="">Please select ...</option>
+                    <option value="hcm">Hồ Chí Minh</option>
+                    <option value="hn">Hà Nội</option>
+                </select>
+                <div class="invalid-feedback">Vui lòng chọn Thành phố/ Tỉnh</div>
+            </div>
+
+            <div class="form-group">
+                <label for="district">Quận/ Huyện</label>
+                <input type="text" class="form-control" id="district">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" class="form-control" id="email" required>
+                <div class="invalid-feedback">Mẫu xe quan tâm</div>
+            </div>
+
+            <div class="form-group">
+                <label for="requestInfo">Thông tin yêu cầu</label>
+                <textarea class="form-control" id="requestInfo"></textarea>
+            </div>
+
+            <div class="form-group form-check terms-section">
+                <input type="checkbox" class="form-check-input" id="agree" required>
+                <label class="form-check-label" for="agree">Tôi đồng ý</label>
+                <div class="invalid-feedback">Vui lòng đồng ý với chính sách</div>
+                <p>
+                    1. Tôi trên 18 tuổi và tôi có bằng lái xe B2 hợp lệ.*<br>
+                    2. Tôi đồng ý để THACO (và các công ty liên kết, đối tác của THACO) thu thập,hiệu chỉnh,lưu trữ,sao chép, sử dụng thông tin của tôi cho các hoạt động tiếp thị và dịch vụ (bao gồm nhưng không giới hạn tới các công ty thuộc tập đoàn BMW) nhầm mục đích chăm sóc khách hàng, gửi thiệp mời đến các sự kiện ,các hoạt động tiếp thị, nghiên cứu và các mục đích thống kê khác giữa các đối tác hoặc công ty thành viên của BMW .Tôi cũng biết rằng thông tin cá nhân của tôi sẽ được sử dụng dựa trên luật bảo vệ sự riêng tư hiện hành .<br>
+                    3. Tôi cũng đồng ý nhận thông tin từ THACO (và các công ty liên kết, đối tác của THACO) liên hệ tôi nhầm mục đích thực hiện chương trình quảng cáo /chăm sóc khách hàng qua số điện thoại hay email mà tôi đã đăng ký .
+                </p>
+            </div>
+
+            <button type="submit" class="btn btn-submit">Submit</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    function shareLocation() {
+        alert("Share location functionality coming soon!");
+    }
+    (() => {
+        'use strict';
+        const forms = document.querySelectorAll('.form-container form');
+        Array.from(forms).forEach(form => {
+            form.addEventListener('submit', event => {
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        });
+    })();
+</script>
