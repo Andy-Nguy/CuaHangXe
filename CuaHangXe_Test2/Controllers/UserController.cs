@@ -22,7 +22,7 @@ namespace CuaHangXe_Test2.Controllers
         {
             if (nv != null)
             {
-                SieuXeDbEntities4 db = new SieuXeDbEntities4();
+                SieuXeDbEntities5 db = new SieuXeDbEntities5();
                 NhanVien nvCheck = db.NhanViens.Where(nvien => nvien.TenDangNhap == nv.TenDangNhap).FirstOrDefault();
                 if (nvCheck != null)
                 {
@@ -70,7 +70,7 @@ namespace CuaHangXe_Test2.Controllers
         {
             if (nv != null)
             {
-                SieuXeDbEntities4 db = new SieuXeDbEntities4();
+                SieuXeDbEntities5 db = new SieuXeDbEntities5();
                 NhanVien nvCheck = db.NhanViens.Where(nvien=>nvien.TenDangNhap == nv.TenDangNhap).FirstOrDefault();
                 if (nvCheck == null)
                 {
@@ -88,7 +88,7 @@ namespace CuaHangXe_Test2.Controllers
         }
         public string TaoMaNV()
         {
-            SieuXeDbEntities4 db = new SieuXeDbEntities4();
+            SieuXeDbEntities5 db = new SieuXeDbEntities5();
             int soNVHienTai = db.NhanViens.ToList().Count;
             soNVHienTai++;
             return "NV" + soNVHienTai.ToString("D3");

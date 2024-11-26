@@ -20,13 +20,11 @@
         <EntityType Name="DichVu">
           <Key>
             <PropertyRef Name="MaDichVu" />
+            <PropertyRef Name="MaKhachHang" />
           </Key>
           <Property Name="MaDichVu" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="TenDichVu" Type="nvarchar(max)" />
-          <Property Name="MoTaDichVu" Type="nvarchar(max)" />
+          <Property Name="MaKhachHang" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="ChiPhiDichVu" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="ThoiGianThucHien" Type="nvarchar" MaxLength="50" />
-          <Property Name="MaKhachHang" Type="nchar" MaxLength="10" />
           <Property Name="NgaySuDungDichVu" Type="date" />
         </EntityType>
         <EntityType Name="HoaDonBanHang">
@@ -111,6 +109,14 @@
           <Property Name="MaNhanVienKiemTra" Type="nchar" MaxLength="10" />
           <Property Name="TrangThaiDonHang" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="ThongTinDichVu">
+          <Key>
+            <PropertyRef Name="MaDichVu" />
+          </Key>
+          <Property Name="MaDichVu" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="TenDichVu" Type="nvarchar(max)" />
+          <Property Name="MoTaDichVu" Type="nvarchar(max)" />
+        </EntityType>
         <EntityType Name="Xe">
           <Key>
             <PropertyRef Name="MaXe" />
@@ -130,7 +136,7 @@
           <Property Name="MoTa" Type="nvarchar" MaxLength="500" />
           <Property Name="TrangThai" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <Association Name="FK__BaoHanhXe__MaKha__52593CB8">
+        <Association Name="FK__BaoHanhXe__MaKha__5535A963">
           <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="0..1" />
           <End Role="BaoHanhXe" Type="Self.BaoHanhXe" Multiplicity="*" />
           <ReferentialConstraint>
@@ -142,7 +148,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__BaoHanhXe__MaXe__5165187F">
+        <Association Name="FK__BaoHanhXe__MaXe__5441852A">
           <End Role="Xe" Type="Self.Xe" Multiplicity="0..1" />
           <End Role="BaoHanhXe" Type="Self.BaoHanhXe" Multiplicity="*" />
           <ReferentialConstraint>
@@ -154,8 +160,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DichVu__MaKhachH__4E88ABD4">
-          <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="0..1" />
+        <Association Name="FK__DichVu__MaDichVu__5165187F">
+          <End Role="ThongTinDichVu" Type="Self.ThongTinDichVu" Multiplicity="1" />
+          <End Role="DichVu" Type="Self.DichVu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ThongTinDichVu">
+              <PropertyRef Name="MaDichVu" />
+            </Principal>
+            <Dependent Role="DichVu">
+              <PropertyRef Name="MaDichVu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DichVu__MaKhachH__5070F446">
+          <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="1" />
           <End Role="DichVu" Type="Self.DichVu" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="KhachHang">
@@ -284,16 +302,21 @@
           <EntitySet Name="NhanVien" EntityType="Self.NhanVien" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PhieuNhapKho" EntityType="Self.PhieuNhapKho" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PhieuXuatKho" EntityType="Self.PhieuXuatKho" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ThongTinDichVu" EntityType="Self.ThongTinDichVu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Xe" EntityType="Self.Xe" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__BaoHanhXe__MaKha__52593CB8" Association="Self.FK__BaoHanhXe__MaKha__52593CB8">
+          <AssociationSet Name="FK__BaoHanhXe__MaKha__5535A963" Association="Self.FK__BaoHanhXe__MaKha__5535A963">
             <End Role="KhachHang" EntitySet="KhachHang" />
             <End Role="BaoHanhXe" EntitySet="BaoHanhXe" />
           </AssociationSet>
-          <AssociationSet Name="FK__BaoHanhXe__MaXe__5165187F" Association="Self.FK__BaoHanhXe__MaXe__5165187F">
+          <AssociationSet Name="FK__BaoHanhXe__MaXe__5441852A" Association="Self.FK__BaoHanhXe__MaXe__5441852A">
             <End Role="Xe" EntitySet="Xe" />
             <End Role="BaoHanhXe" EntitySet="BaoHanhXe" />
           </AssociationSet>
-          <AssociationSet Name="FK__DichVu__MaKhachH__4E88ABD4" Association="Self.FK__DichVu__MaKhachH__4E88ABD4">
+          <AssociationSet Name="FK__DichVu__MaDichVu__5165187F" Association="Self.FK__DichVu__MaDichVu__5165187F">
+            <End Role="ThongTinDichVu" EntitySet="ThongTinDichVu" />
+            <End Role="DichVu" EntitySet="DichVu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DichVu__MaKhachH__5070F446" Association="Self.FK__DichVu__MaKhachH__5070F446">
             <End Role="KhachHang" EntitySet="KhachHang" />
             <End Role="DichVu" EntitySet="DichVu" />
           </AssociationSet>
@@ -350,21 +373,20 @@
           <Property Name="NgayKetThucBaoHanh" Type="DateTime" Precision="0" />
           <Property Name="DieuKhoanBaoHanh" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="TrangThaiBaoHanh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="KhachHang" Relationship="Self.FK__BaoHanhXe__MaKha__52593CB8" FromRole="BaoHanhXe" ToRole="KhachHang" />
-          <NavigationProperty Name="Xe" Relationship="Self.FK__BaoHanhXe__MaXe__5165187F" FromRole="BaoHanhXe" ToRole="Xe" />
+          <NavigationProperty Name="KhachHang" Relationship="Self.FK__BaoHanhXe__MaKha__5535A963" FromRole="BaoHanhXe" ToRole="KhachHang" />
+          <NavigationProperty Name="Xe" Relationship="Self.FK__BaoHanhXe__MaXe__5441852A" FromRole="BaoHanhXe" ToRole="Xe" />
         </EntityType>
         <EntityType Name="DichVu">
           <Key>
             <PropertyRef Name="MaDichVu" />
+            <PropertyRef Name="MaKhachHang" />
           </Key>
           <Property Name="MaDichVu" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="TenDichVu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="MoTaDichVu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MaKhachHang" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="ChiPhiDichVu" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="ThoiGianThucHien" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="MaKhachHang" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="NgaySuDungDichVu" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="KhachHang" Relationship="Self.FK__DichVu__MaKhachH__4E88ABD4" FromRole="DichVu" ToRole="KhachHang" />
+          <NavigationProperty Name="ThongTinDichVu" Relationship="Self.FK__DichVu__MaDichVu__5165187F" FromRole="DichVu" ToRole="ThongTinDichVu" />
+          <NavigationProperty Name="KhachHang" Relationship="Self.FK__DichVu__MaKhachH__5070F446" FromRole="DichVu" ToRole="KhachHang" />
         </EntityType>
         <EntityType Name="HoaDonBanHang">
           <Key>
@@ -404,8 +426,8 @@
           <Property Name="DiaChiKhachHang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="SoDienThoaiKhachHang" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="EmailKhachHang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="BaoHanhXes" Relationship="Self.FK__BaoHanhXe__MaKha__52593CB8" FromRole="KhachHang" ToRole="BaoHanhXe" />
-          <NavigationProperty Name="DichVus" Relationship="Self.FK__DichVu__MaKhachH__4E88ABD4" FromRole="KhachHang" ToRole="DichVu" />
+          <NavigationProperty Name="BaoHanhXes" Relationship="Self.FK__BaoHanhXe__MaKha__5535A963" FromRole="KhachHang" ToRole="BaoHanhXe" />
+          <NavigationProperty Name="DichVus" Relationship="Self.FK__DichVu__MaKhachH__5070F446" FromRole="KhachHang" ToRole="DichVu" />
           <NavigationProperty Name="HopDongMuaBans" Relationship="Self.FK__HopDongMu__MaKha__46E78A0C" FromRole="KhachHang" ToRole="HopDongMuaBan" />
           <NavigationProperty Name="PhieuXuatKhoes" Relationship="Self.FK__PhieuXuat__MaKha__4316F928" FromRole="KhachHang" ToRole="PhieuXuatKho" />
         </EntityType>
@@ -465,6 +487,15 @@
           <NavigationProperty Name="NhanVien" Relationship="Self.FK__PhieuXuat__MaNha__440B1D61" FromRole="PhieuXuatKho" ToRole="NhanVien" />
           <NavigationProperty Name="Xe" Relationship="Self.FK__PhieuXuatK__MaXe__4222D4EF" FromRole="PhieuXuatKho" ToRole="Xe" />
         </EntityType>
+        <EntityType Name="ThongTinDichVu">
+          <Key>
+            <PropertyRef Name="MaDichVu" />
+          </Key>
+          <Property Name="MaDichVu" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="TenDichVu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MoTaDichVu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DichVus" Relationship="Self.FK__DichVu__MaDichVu__5165187F" FromRole="ThongTinDichVu" ToRole="DichVu" />
+        </EntityType>
         <EntityType Name="Xe">
           <Key>
             <PropertyRef Name="MaXe" />
@@ -483,12 +514,12 @@
           <Property Name="HinhAnh4" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="MoTa" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="TrangThai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="BaoHanhXes" Relationship="Self.FK__BaoHanhXe__MaXe__5165187F" FromRole="Xe" ToRole="BaoHanhXe" />
+          <NavigationProperty Name="BaoHanhXes" Relationship="Self.FK__BaoHanhXe__MaXe__5441852A" FromRole="Xe" ToRole="BaoHanhXe" />
           <NavigationProperty Name="HopDongMuaBans" Relationship="Self.FK__HopDongMua__MaXe__47DBAE45" FromRole="Xe" ToRole="HopDongMuaBan" />
           <NavigationProperty Name="PhieuNhapKhoes" Relationship="Self.FK__PhieuNhapK__MaXe__3E52440B" FromRole="Xe" ToRole="PhieuNhapKho" />
           <NavigationProperty Name="PhieuXuatKhoes" Relationship="Self.FK__PhieuXuatK__MaXe__4222D4EF" FromRole="Xe" ToRole="PhieuXuatKho" />
         </EntityType>
-        <Association Name="FK__BaoHanhXe__MaKha__52593CB8">
+        <Association Name="FK__BaoHanhXe__MaKha__5535A963">
           <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="0..1" />
           <End Role="BaoHanhXe" Type="Self.BaoHanhXe" Multiplicity="*" />
           <ReferentialConstraint>
@@ -500,7 +531,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__BaoHanhXe__MaXe__5165187F">
+        <Association Name="FK__BaoHanhXe__MaXe__5441852A">
           <End Role="Xe" Type="Self.Xe" Multiplicity="0..1" />
           <End Role="BaoHanhXe" Type="Self.BaoHanhXe" Multiplicity="*" />
           <ReferentialConstraint>
@@ -512,8 +543,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DichVu__MaKhachH__4E88ABD4">
-          <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="0..1" />
+        <Association Name="FK__DichVu__MaDichVu__5165187F">
+          <End Role="ThongTinDichVu" Type="Self.ThongTinDichVu" Multiplicity="1" />
+          <End Role="DichVu" Type="Self.DichVu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ThongTinDichVu">
+              <PropertyRef Name="MaDichVu" />
+            </Principal>
+            <Dependent Role="DichVu">
+              <PropertyRef Name="MaDichVu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DichVu__MaKhachH__5070F446">
+          <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="1" />
           <End Role="DichVu" Type="Self.DichVu" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="KhachHang">
@@ -632,7 +675,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="SieuXeDbEntities4" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="SieuXeDbEntities5" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="BaoHanhXes" EntityType="Self.BaoHanhXe" />
           <EntitySet Name="DichVus" EntityType="Self.DichVu" />
           <EntitySet Name="HoaDonBanHangs" EntityType="Self.HoaDonBanHang" />
@@ -642,16 +685,21 @@
           <EntitySet Name="NhanViens" EntityType="Self.NhanVien" />
           <EntitySet Name="PhieuNhapKhoes" EntityType="Self.PhieuNhapKho" />
           <EntitySet Name="PhieuXuatKhoes" EntityType="Self.PhieuXuatKho" />
+          <EntitySet Name="ThongTinDichVus" EntityType="Self.ThongTinDichVu" />
           <EntitySet Name="Xes" EntityType="Self.Xe" />
-          <AssociationSet Name="FK__BaoHanhXe__MaKha__52593CB8" Association="Self.FK__BaoHanhXe__MaKha__52593CB8">
+          <AssociationSet Name="FK__BaoHanhXe__MaKha__5535A963" Association="Self.FK__BaoHanhXe__MaKha__5535A963">
             <End Role="KhachHang" EntitySet="KhachHangs" />
             <End Role="BaoHanhXe" EntitySet="BaoHanhXes" />
           </AssociationSet>
-          <AssociationSet Name="FK__BaoHanhXe__MaXe__5165187F" Association="Self.FK__BaoHanhXe__MaXe__5165187F">
+          <AssociationSet Name="FK__BaoHanhXe__MaXe__5441852A" Association="Self.FK__BaoHanhXe__MaXe__5441852A">
             <End Role="Xe" EntitySet="Xes" />
             <End Role="BaoHanhXe" EntitySet="BaoHanhXes" />
           </AssociationSet>
-          <AssociationSet Name="FK__DichVu__MaKhachH__4E88ABD4" Association="Self.FK__DichVu__MaKhachH__4E88ABD4">
+          <AssociationSet Name="FK__DichVu__MaDichVu__5165187F" Association="Self.FK__DichVu__MaDichVu__5165187F">
+            <End Role="ThongTinDichVu" EntitySet="ThongTinDichVus" />
+            <End Role="DichVu" EntitySet="DichVus" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DichVu__MaKhachH__5070F446" Association="Self.FK__DichVu__MaKhachH__5070F446">
             <End Role="KhachHang" EntitySet="KhachHangs" />
             <End Role="DichVu" EntitySet="DichVus" />
           </AssociationSet>
@@ -697,7 +745,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="SieuXeDbModelStoreContainer" CdmEntityContainer="SieuXeDbEntities4">
+        <EntityContainerMapping StorageEntityContainer="SieuXeDbModelStoreContainer" CdmEntityContainer="SieuXeDbEntities5">
           <EntitySetMapping Name="BaoHanhXes">
             <EntityTypeMapping TypeName="SieuXeDbModel.BaoHanhXe">
               <MappingFragment StoreEntitySet="BaoHanhXe">
@@ -715,11 +763,8 @@
             <EntityTypeMapping TypeName="SieuXeDbModel.DichVu">
               <MappingFragment StoreEntitySet="DichVu">
                 <ScalarProperty Name="MaDichVu" ColumnName="MaDichVu" />
-                <ScalarProperty Name="TenDichVu" ColumnName="TenDichVu" />
-                <ScalarProperty Name="MoTaDichVu" ColumnName="MoTaDichVu" />
-                <ScalarProperty Name="ChiPhiDichVu" ColumnName="ChiPhiDichVu" />
-                <ScalarProperty Name="ThoiGianThucHien" ColumnName="ThoiGianThucHien" />
                 <ScalarProperty Name="MaKhachHang" ColumnName="MaKhachHang" />
+                <ScalarProperty Name="ChiPhiDichVu" ColumnName="ChiPhiDichVu" />
                 <ScalarProperty Name="NgaySuDungDichVu" ColumnName="NgaySuDungDichVu" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -810,6 +855,15 @@
                 <ScalarProperty Name="GiaXuat" ColumnName="GiaXuat" />
                 <ScalarProperty Name="MaNhanVienKiemTra" ColumnName="MaNhanVienKiemTra" />
                 <ScalarProperty Name="TrangThaiDonHang" ColumnName="TrangThaiDonHang" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ThongTinDichVus">
+            <EntityTypeMapping TypeName="SieuXeDbModel.ThongTinDichVu">
+              <MappingFragment StoreEntitySet="ThongTinDichVu">
+                <ScalarProperty Name="MaDichVu" ColumnName="MaDichVu" />
+                <ScalarProperty Name="TenDichVu" ColumnName="TenDichVu" />
+                <ScalarProperty Name="MoTaDichVu" ColumnName="MoTaDichVu" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

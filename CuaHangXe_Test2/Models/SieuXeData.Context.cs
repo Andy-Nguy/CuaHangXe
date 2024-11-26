@@ -13,10 +13,10 @@ namespace CuaHangXe_Test2.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class SieuXeDbEntities4 : DbContext
+    public partial class SieuXeDbEntities5 : DbContext
     {
-        public SieuXeDbEntities4()
-            : base("name=SieuXeDbEntities4")
+        public SieuXeDbEntities5()
+            : base("name=SieuXeDbEntities5")
         {
         }
     
@@ -34,6 +34,7 @@ namespace CuaHangXe_Test2.Models
         public virtual DbSet<NhanVien> NhanViens { get; set; }
         public virtual DbSet<PhieuNhapKho> PhieuNhapKhoes { get; set; }
         public virtual DbSet<PhieuXuatKho> PhieuXuatKhoes { get; set; }
+        public virtual DbSet<ThongTinDichVu> ThongTinDichVus { get; set; }
         public virtual DbSet<Xe> Xes { get; set; }
     }
 }

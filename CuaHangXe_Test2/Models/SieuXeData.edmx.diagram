@@ -4,9 +4,9 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="bf035f8c31da4c05a5668934c305f2ad" Name="Diagram1">
+      <Diagram DiagramId="222db578b77f43ff9f50726500f2ece0" Name="Diagram1">
         <EntityTypeShape EntityType="SieuXeDbModel.BaoHanhXe" Width="1.5" PointX="3" PointY="9" IsExpanded="true" />
-        <EntityTypeShape EntityType="SieuXeDbModel.DichVu" Width="1.5" PointX="3" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="SieuXeDbModel.DichVu" Width="1.5" PointX="3" PointY="17.25" IsExpanded="true" />
         <EntityTypeShape EntityType="SieuXeDbModel.HoaDonBanHang" Width="1.5" PointX="8.25" PointY="9.125" IsExpanded="true" />
         <EntityTypeShape EntityType="SieuXeDbModel.HopDongMuaBan" Width="1.5" PointX="6" PointY="8.625" IsExpanded="true" />
         <EntityTypeShape EntityType="SieuXeDbModel.KhachHang" Width="1.5" PointX="0.75" PointY="14" IsExpanded="true" />
@@ -14,10 +14,12 @@
         <EntityTypeShape EntityType="SieuXeDbModel.NhanVien" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SieuXeDbModel.PhieuNhapKho" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
         <EntityTypeShape EntityType="SieuXeDbModel.PhieuXuatKho" Width="1.5" PointX="3" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SieuXeDbModel.ThongTinDichVu" Width="1.5" PointX="0.75" PointY="18.375" IsExpanded="true" />
         <EntityTypeShape EntityType="SieuXeDbModel.Xe" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
-        <AssociationConnector Association="SieuXeDbModel.FK__BaoHanhXe__MaKha__52593CB8" ManuallyRouted="false" />
-        <AssociationConnector Association="SieuXeDbModel.FK__BaoHanhXe__MaXe__5165187F" ManuallyRouted="false" />
-        <AssociationConnector Association="SieuXeDbModel.FK__DichVu__MaKhachH__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="SieuXeDbModel.FK__BaoHanhXe__MaKha__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="SieuXeDbModel.FK__BaoHanhXe__MaXe__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="SieuXeDbModel.FK__DichVu__MaDichVu__5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="SieuXeDbModel.FK__DichVu__MaKhachH__5070F446" ManuallyRouted="false" />
         <AssociationConnector Association="SieuXeDbModel.FK__HoaDonBan__MaHop__4BAC3F29" ManuallyRouted="false" />
         <AssociationConnector Association="SieuXeDbModel.FK__HopDongMu__MaKha__46E78A0C" ManuallyRouted="false" />
         <AssociationConnector Association="SieuXeDbModel.FK__HopDongMu__MaNha__48CFD27E" ManuallyRouted="false" />

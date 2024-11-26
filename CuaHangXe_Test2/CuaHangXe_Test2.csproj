@@ -328,6 +328,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SieuXeData.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\ThongTinDichVu.cs">
+      <DependentUpon>SieuXeData.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Xe.cs">
       <DependentUpon>SieuXeData.tt</DependentUpon>
     </Compile>
