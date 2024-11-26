@@ -1,4 +1,4 @@
-﻿@{ 
+﻿@{
     var tenNVDangDangNhap = HttpUtility.UrlDecode(Context.Request.Cookies["name"]?.Value, System.Text.Encoding.UTF8);
 
 }
@@ -73,47 +73,12 @@
                 </div>
 
                 <div class="box-user" style="">
-                    @{
-                        if (tenNVDangDangNhap == null)
-                        {
-                            <a href="/User/Login">
-                                <i class="fa-regular fa-user user"></i>
-                            </a>
-                        }
-                        else
-                        {
-                            <a href="/NhanVien/">
-                                <i class="fa-regular fa-user user"></i>
-                            </a>
-                        }
-                    }
-
+                    <a href="/NhanVien/">
+                        <i class="fa-regular fa-user user"></i>
+                    </a>
                 </div>
             </div>
         </div>
-        @*<div class="banner">
-                    <img id="pic" src="~/Images/August-Motorcars-Supercar-Showroom.jpg" alt="">
-                    <div class="in-content">
-                        <div class="tran-box">
-                            <div class="title">Design for life</div>
-                            <div class="text-title">Say hello to our brand new arrivals.</div>
-                            <div class="all-button">
-                                <button>Shop all new in</button>
-                            </div>
-                        </div>
-                        <button id="left"><i class="fa-solid fa-arrow-left"></i></button>
-                        <button id="right"><i class="fa-solid fa-arrow-right"></i></button>
-                    </div>
-                    <div id="list">
-                        <ul>
-                            <li><button onclick="indexNumber(0)"></button></li>
-                            <li><button onclick="indexNumber(1)"></button></li>
-                            <li><button onclick="indexNumber(2)"></button></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>*@
-
         @RenderSection("Banner", required: false)
         <script src="~/Content/script.js"></script>
     </div>
@@ -121,7 +86,7 @@
 
     <script type="text/javascript">
         const toggleMenu = () => {
-            document.querySelector('.navbar-burger').classList.toggle('open');  // Xoay burger
+            document.querySelector('.navbar-burger').classList.toggle('open');
             document.body.classList.toggle("open");
         };
 
@@ -156,29 +121,6 @@
                 <div>Email:Luxuxycar24@gmail.com</div>
             </div>
         </div>
-        <!-- <div class="contact">
-            <h2>CATEGOIRES</h2>
-            <div class="in">
-                <a href="">
-                    <div>Furniture</div>
-                </a>
-                <a href="">
-                    <div>Tables</div>
-                </a>
-                <a href="">
-                    <div>Seating</div>
-                </a>
-                <a href="">
-                    <div>Desks & office </div>
-                </a>
-                <a href="">
-                    <div>Storage</div>
-                </a>
-                <a href="">
-                    <div>Bed & Bath</div>
-                </a>
-            </div>
-        </div> -->
         <div class="contact">
             <h2>DỊCH VỤ</h2>
             <div class="in">

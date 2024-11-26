@@ -29,8 +29,7 @@ namespace CuaHangXe_Test2.Controllers
                     if (nvCheck.MatKhau == nv.MatKhau)
                     {
                         HttpCookie authCookie = new HttpCookie("auth", nvCheck.TenDangNhap);
-                        HttpCookie nameCookie = new HttpCookie("name", HttpUtility.UrlEncode(nvCheck.TenNhanVien, System.Text.Encoding.UTF8));
-                        Response.Cookies.Add(nameCookie);
+                        HttpCookie nameCookie = new HttpCookie("name", HttpUtility.UrlEncode(nvCheck.TenNhanVien, System.Text.Encoding.UTF8));                        
                         HttpCookie roleCookie = new HttpCookie("role", nvCheck.ChucVuNhanVien);
                         Response.Cookies.Add(authCookie);
                         Response.Cookies.Add(nameCookie);

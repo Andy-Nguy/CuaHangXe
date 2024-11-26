@@ -4,123 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quản lý nhân viên</title>
-
-    <!-- Font Awesome -->
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-
-    <!-- Bootstrap 4 -->
     <link rel="stylesheet" href="~/Content/bootstrap/css/bootstrap.min.css" />
-
-    <!-- JQuery UI -->
     <link rel="stylesheet" href="~/Content/jquery-ui.min.css" />
-
-    <!-- Animate -->
-    <!-- <link rel="stylesheet" href="css/animate.css"> -->
-    <!-- My CSS -->
     <link rel="stylesheet" href="~/Content/styleQLNV.css" />
-
     <link rel="stylesheet" type="text/css" href="~/Content/mainQLNV.css" />
 </head>
 
 <body>
     <div class="wrapper">
-        <!-- Sidebar Holder -->
-        <nav id="sidebar">
-            <ul class="list-unstyled">
-                <li>
-                    <a href="/home/">
-                        <i class="fa fa-home"></i>
-                        Trang chủ
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-briefcase"></i>
-                        Quản lý nhân viên
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-briefcase"></i>
-                        Quản lý kho
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-link"></i>
-                        Quản lý đơn hàng
-                    </a>
-                </li>
-            </ul>
-        </nav>
-
-        <!-- Page Content Holder -->
-        <div id="content">
-            <div class="container">
-                <div class="card text-center">
-                    <!-- Header -->
-                    <div class="card-header myCardHeader position-relative">
-                        <h3 class="text-center text-primary font-weight-bold">
-                            Danh sách nhân viên
-                        </h3>
-                        <button class="btn btn-primary position-absolute"
-                                id="btnThem"
-                                data-toggle="modal"
-                                data-target="#myModal"
-                                style="right: 10px;bottom: 10px;">
-                            Thêm nhân viên
-                        </button>
-                    </div>
-
-                    <!-- Body -->
-                    <div class="card-body">
-                        <div class="row mb-3">
-                            <div class="col">
-                                <div class="input-group">
-                                    <input type="text"
-                                           class="form-control"
-                                           placeholder="Loại nhân viên"
-                                           id="searchName" />
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="btnTimNV">
-                                            <button class="btn" onclick="searchStaff()">
-                                                <i class="fa fa-search"></i>
-                                            </button>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <table class="table table-bordered">
-                            <thead class="text-primary">
-                                <tr>
-                                    <th style="width:10% ;">Mã nhân viên</th>
-                                    <th style="width:17% ;">Họ và tên</th>
-                                    <th style="width: 17%;">Email</th>
-                                    <th style="width:23% ;">Địa chỉ</th>
-                                    <th style="width: 13%;">Số điện thoại</th>
-                                    <th style="width: 10%;">Chức vụ</th>
-                                    <th style="width: 5%;"><em class="fa fa-cog"></em></th>
-                                </tr>
-                            </thead>
-                            <tbody id="tableDanhSach"></tbody>
-                        </table>
-                    </div>
-
-                    <!-- Footer -->
-                    <div class="card-footer myCardFooter">
-                        <nav>
-                            <ul class="pagination justify-content-center"
-                                id="ulPhanTrang"></ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div>
         @RenderBody()
     </div>
 
