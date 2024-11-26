@@ -29,12 +29,19 @@ namespace CuaHangXe_Test2.Controllers
                     if (nvCheck.MatKhau == nv.MatKhau)
                     {
                         HttpCookie authCookie = new HttpCookie("auth", nvCheck.TenDangNhap);
-                        HttpCookie nameCookie = new HttpCookie("name", HttpUtility.UrlEncode(nvCheck.TenNhanVien, System.Text.Encoding.UTF8));                        
+                        HttpCookie nameCookie = new HttpCookie("name", HttpUtility.UrlEncode(nvCheck.TenNhanVien, System.Text.Encoding.UTF8));
                         HttpCookie roleCookie = new HttpCookie("role", nvCheck.VaiTro);
                         Response.Cookies.Add(authCookie);
                         Response.Cookies.Add(nameCookie);
                         Response.Cookies.Add(roleCookie);
-
+                        if (nvCheck.VaiTro == "admin")
+                        {
+                            return RedirectToAction("QuanLyNhanVien", "NhanVien");
+                        }
+                        if (nvCheck.VaiTro == "userDonHang")
+                        {
+                            return RedirectToAction("QuanLyDonHang", "NhanVien");
+                        }
                         return RedirectToAction("Index", "NhanVien");
                     }
                 }
@@ -70,7 +77,7 @@ namespace CuaHangXe_Test2.Controllers
             if (nv != null)
             {
                 SieuXeDbEntities6 db = new SieuXeDbEntities6();
-                NhanVien nvCheck = db.NhanViens.Where(nvien=>nvien.TenDangNhap == nv.TenDangNhap).FirstOrDefault();
+                NhanVien nvCheck = db.NhanViens.Where(nvien => nvien.TenDangNhap == nv.TenDangNhap).FirstOrDefault();
                 if (nvCheck == null)
                 {
                     nv.MaNhanVien = TaoMaNV();

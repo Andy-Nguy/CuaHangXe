@@ -285,6 +285,8 @@
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Filters\AdminFilterAttribute.cs" />
     <Compile Include="Filters\AuthFilterAttribute.cs" />
+    <Compile Include="Filters\NVDonHangFilterAttribute.cs" />
+    <Compile Include="Filters\NVKhoFilterAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -382,6 +384,8 @@
     <Content Include="Views\Home\ChiTietNhaCungCap.cshtml" />
     <Content Include="Views\Shared\_LayoutNhanVien2.cshtml" />
     <Content Include="Views\NhanVien\Index.cshtml" />
+    <Content Include="Views\NhanVien\QuanLyDonHang.cshtml" />
+    <Content Include="Views\NhanVien\QuanLyNhanVien.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
