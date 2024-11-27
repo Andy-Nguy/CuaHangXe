@@ -22,15 +22,17 @@ namespace CuaHangXe_Test2.Controllers
         {
             if (nv != null)
             {
-                SieuXeDbEntities6 db = new SieuXeDbEntities6();
+                SieuXeDbEntities7 db = new SieuXeDbEntities7();
                 NhanVien nvCheck = db.NhanViens.Where(nvien => nvien.TenDangNhap == nv.TenDangNhap).FirstOrDefault();
                 if (nvCheck != null)
                 {
                     if (nvCheck.MatKhau == nv.MatKhau)
                     {
+                        HttpCookie maNVCookie = new HttpCookie("maNV", nvCheck.MaNhanVien);
                         HttpCookie authCookie = new HttpCookie("auth", nvCheck.TenDangNhap);
                         HttpCookie nameCookie = new HttpCookie("name", HttpUtility.UrlEncode(nvCheck.TenNhanVien, System.Text.Encoding.UTF8));
                         HttpCookie roleCookie = new HttpCookie("role", nvCheck.VaiTro);
+                        Response.Cookies.Add(maNVCookie);
                         Response.Cookies.Add(authCookie);
                         Response.Cookies.Add(nameCookie);
                         Response.Cookies.Add(roleCookie);
@@ -51,19 +53,22 @@ namespace CuaHangXe_Test2.Controllers
         }
         public ActionResult Logout()
         {
+            HttpCookie maNVCookie = new HttpCookie("maNV");
             HttpCookie authCookie = new HttpCookie("auth");
             HttpCookie nameCookie = new HttpCookie("name");
-            Response.Cookies.Add(nameCookie);
             HttpCookie roleCookie = new HttpCookie("role");
 
             authCookie.Expires = DateTime.Now.AddDays(-1);
-            Response.Cookies.Add(authCookie);
+            Response.Cookies.Add(maNVCookie);
 
             nameCookie.Expires = DateTime.Now.AddDays(-1);
-            Response.Cookies.Add(nameCookie);
+            Response.Cookies.Add(authCookie);
 
             roleCookie.Expires = DateTime.Now.AddDays(-1);
             Response.Cookies.Add(nameCookie);
+
+            roleCookie.Expires = DateTime.Now.AddDays(-1);
+            Response.Cookies.Add(roleCookie);
 
             return Redirect("/");
         }
@@ -76,7 +81,7 @@ namespace CuaHangXe_Test2.Controllers
         {
             if (nv != null)
             {
-                SieuXeDbEntities6 db = new SieuXeDbEntities6();
+                SieuXeDbEntities7 db = new SieuXeDbEntities7();
                 NhanVien nvCheck = db.NhanViens.Where(nvien => nvien.TenDangNhap == nv.TenDangNhap).FirstOrDefault();
                 if (nvCheck == null)
                 {
@@ -90,7 +95,7 @@ namespace CuaHangXe_Test2.Controllers
         }
         public string TaoMaNV()
         {
-            SieuXeDbEntities6 db = new SieuXeDbEntities6();
+            SieuXeDbEntities7 db = new SieuXeDbEntities7();
             int soNVHienTai = db.NhanViens.ToList().Count;
             soNVHienTai++;
             return "NV" + soNVHienTai.ToString("D3");

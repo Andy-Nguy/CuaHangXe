@@ -99,16 +99,23 @@ CREATE TABLE HoaDonBanHang (
 );
 
 -- Bảng DichVu
-CREATE TABLE DichVu (
+CREATE TABLE ThongTinDichVu (
     MaDichVu NCHAR(10) PRIMARY KEY,
-    TenDichVu NVARCHAR(100),
-    MoTaDichVu NVARCHAR(255),
-    ChiPhiDichVu DECIMAL(18,2),
-    ThoiGianThucHien NVARCHAR(50),
-    MaKhachHang NCHAR(10),
-    NgaySuDungDichVu DATE,
+    TenDichVu NVARCHAR(Max),
+    MoTaDichVu NVARCHAR(Max),
+)
+
+-- Bảng DichVu sửa đổi
+CREATE TABLE DichVu (
+    MaDichVu NCHAR(10),
+    MaKhachHang NCHAR(10) ,
+    NgaySuDungDichVu DATE  ,
+    ChiPhiDichVu DECIMAL(18, 2),
+    PRIMARY KEY (MaDichVu, MaKhachHang, NgaySuDungDichVu),
+    FOREIGN KEY (MaDichVu) REFERENCES ThongTinDichVu(MaDichVu),
     FOREIGN KEY (MaKhachHang) REFERENCES KhachHang(MaKhachHang)
 );
+
 
 -- Bảng BaoHanhXe
 CREATE TABLE BaoHanhXe (

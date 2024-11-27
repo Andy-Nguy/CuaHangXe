@@ -12,7 +12,7 @@ namespace CuaHangXe_Test2.Controllers
 
     public class NhanVienController : Controller
     {
-        SieuXeDbEntities6 db = new SieuXeDbEntities6();
+        SieuXeDbEntities7 db = new SieuXeDbEntities7();
         // GET: NhanVien
         [AuthFilter]
         public ActionResult Index()

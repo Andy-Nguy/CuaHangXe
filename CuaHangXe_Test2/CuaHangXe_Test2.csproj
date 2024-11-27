@@ -266,15 +266,15 @@
     <Content Include="Images\XE_019_2.jpg" />
     <Content Include="Images\XE_019_3.jpg" />
     <Content Include="Images\XE_019_4.jpg" />
-    <Content Include="Models\SieuXeData.Context.tt">
+    <Content Include="Models\SieuXeDb.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SieuXeData.edmx</DependentUpon>
-      <LastGenOutput>SieuXeData.Context.cs</LastGenOutput>
+      <DependentUpon>SieuXeDb.edmx</DependentUpon>
+      <LastGenOutput>SieuXeDb.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\SieuXeData.tt">
+    <Content Include="Models\SieuXeDb.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SieuXeData.edmx</DependentUpon>
-      <LastGenOutput>SieuXeData.cs</LastGenOutput>
+      <DependentUpon>SieuXeDb.edmx</DependentUpon>
+      <LastGenOutput>SieuXeDb.cs</LastGenOutput>
     </Content>
     <Content Include="Web.config" />
   </ItemGroup>
@@ -291,49 +291,53 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BaoHanhXe.cs">
-      <DependentUpon>SieuXeData.tt</DependentUpon>
+      <DependentUpon>SieuXeDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DichVu.cs">
-      <DependentUpon>SieuXeData.tt</DependentUpon>
+      <DependentUpon>SieuXeDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\HoaDonBanHang.cs">
-      <DependentUpon>SieuXeData.tt</DependentUpon>
+      <DependentUpon>SieuXeDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\HopDongMuaBan.cs">
-      <DependentUpon>SieuXeData.tt</DependentUpon>
+      <DependentUpon>SieuXeDb.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\HopDongViewModel.cs" />
     <Compile Include="Models\KhachHang.cs">
-      <DependentUpon>SieuXeData.tt</DependentUpon>
+      <DependentUpon>SieuXeDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\NhaCungCap.cs">
-      <DependentUpon>SieuXeData.tt</DependentUpon>
+      <DependentUpon>SieuXeDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\NhanVien.cs">
-      <DependentUpon>SieuXeData.tt</DependentUpon>
+      <DependentUpon>SieuXeDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PhieuNhapKho.cs">
-      <DependentUpon>SieuXeData.tt</DependentUpon>
+      <DependentUpon>SieuXeDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PhieuXuatKho.cs">
-      <DependentUpon>SieuXeData.tt</DependentUpon>
+      <DependentUpon>SieuXeDb.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\SieuXeData.Context.cs">
+    <Compile Include="Models\SieuXeDb.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SieuXeData.Context.tt</DependentUpon>
+      <DependentUpon>SieuXeDb.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\SieuXeData.cs">
+    <Compile Include="Models\SieuXeDb.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SieuXeData.tt</DependentUpon>
+      <DependentUpon>SieuXeDb.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\SieuXeData.Designer.cs">
+    <Compile Include="Models\SieuXeDb.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SieuXeData.edmx</DependentUpon>
+      <DependentUpon>SieuXeDb.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ThongTinDichVu.cs">
+      <DependentUpon>SieuXeDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Xe.cs">
-      <DependentUpon>SieuXeData.tt</DependentUpon>
+      <DependentUpon>SieuXeDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -362,12 +366,12 @@
     <Content Include="Content\bootstrap\js\bootstrap.esm.min.js.map" />
     <Content Include="Content\bootstrap\js\bootstrap.js.map" />
     <Content Include="Content\bootstrap\js\bootstrap.min.js.map" />
-    <EntityDeploy Include="Models\SieuXeData.edmx">
+    <EntityDeploy Include="Models\SieuXeDb.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>SieuXeData.Designer.cs</LastGenOutput>
+      <LastGenOutput>SieuXeDb.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\SieuXeData.edmx.diagram">
-      <DependentUpon>SieuXeData.edmx</DependentUpon>
+    <Content Include="Models\SieuXeDb.edmx.diagram">
+      <DependentUpon>SieuXeDb.edmx</DependentUpon>
     </Content>
     <None Include="packages.config" />
     <Content Include="Views\Shared\_LayoutPage1.cshtml" />

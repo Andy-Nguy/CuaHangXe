@@ -3,14 +3,12 @@
     ViewBag.Title = "QuanLyDonHang";
     Layout = "~/Views/Shared/_LayoutNhanVien2.cshtml";
 }
-
 @{
     var hopDongList = ViewBag.HopDongList as List<CuaHangXe_Test2.Models.HopDongMuaBan>;
     var khachHangList = ViewBag.KhachHangList as List<CuaHangXe_Test2.Models.KhachHang>;
 }
 
 @model IEnumerable<CuaHangXe_Test2.Models.HopDongMuaBan>
-
 
 <!-- Page Content Holder -->
 <div id="content">
@@ -90,7 +88,6 @@
                                         <button class="btn btn-warning" onclick="changeStatus('@item.MaHopDong', 'Chưa phê duyệt')">Chưa duyệt</button>
                                     }
                                 </td>
-
                             </tr>
                         }
                     </tbody>

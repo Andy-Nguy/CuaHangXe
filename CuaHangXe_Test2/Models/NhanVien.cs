@@ -11,7 +11,7 @@ namespace CuaHangXe_Test2.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
+    
     public partial class NhanVien
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -27,7 +27,6 @@ namespace CuaHangXe_Test2.Models
         public string SoDienThoaiNhanVien { get; set; }
         public string EmailNhanVien { get; set; }
         public string TenDangNhap { get; set; }
-        [Required]
         public string MatKhau { get; set; }
         public string VaiTro { get; set; }
     
