@@ -1,304 +1,186 @@
 ﻿@model CuaHangXe_Test2.Models.NhaCungCap
 @{
-    ViewBag.Title = "ChiTietNhaCungCap";
+    ViewBag.Title = "Chi Tiết Nhà Cung Cấp";
     Layout = "~/Views/Shared/_LayoutPage1.cshtml";
 }
 
-<style>
-    /* Jumbotron css */
-    .jumbotron {
-        padding: 4rem 2rem;
-        color: white;
-        background-image: url('@Url.Content("~/images/1.jpg")'); /* hình bỏ đại */
-        background-size: cover;
-        background-position: center;
-        border-radius: 10px;
-        text-align: center;
-    }
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Liên Hệ</title>
 
-    .jumbotron h1 {
-        font-weight: bold;
-        font-size: 2.5rem;
-    }
-
-    .jumbotron p {
-        font-size: 1.2rem;
-    }
-
-    /* Card và image css */
-    .card {
-        border: none;
-        border-radius: 10px;
-        overflow: hidden;
-        transition: transform 0.2s ease;
-    }
-
-    .card:hover {
-        transform: translateY(-5px);
-    }
-
-    .card img {
-        border-radius: 10px;
-        height: 300px;
-        object-fit: cover;
-    }
-
-    /* Button css */
-    .btn-black {
-        background-color: #000;
-        color: #fff;
-        font-weight: bold;
-        text-transform: uppercase;
-        border-radius: 5px;
-        padding: 0.75rem 1.25rem;
-    }
-
-    .btn-black:hover {
-        background-color: #333;
-    }
-
-    /* giới thiệu và cái lịch làm việc css*/
-    .info-section, .working-hours-section {
-        border: 2px solid #000;
-        padding: 20px;
-        margin-bottom: 30px;
-        border-radius: 10px;
-    }
-
-    /* Image  */
-    .image-gallery {
-        display: flex;
-        justify-content: space-between;
-        gap: 15px;
-    }
-
-    .image-gallery img {
-        width: 30%;
-        height: 200px;
-        object-fit: cover;
-        border: 2px solid #000;
-        border-radius: 10px;
-    }
-    /* Form css */
-    .form-container {
-        max-width: 500px;
-        margin: auto;
-        padding: 2rem;
-        background-color: white;
-        border-radius: 10px;
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    }
-
-    .form-group {
-        margin-bottom: 1rem;
-    }
-
-    label {
-        font-weight: bold;
-    }
-
-    .form-control, .form-select {
-        border-radius: 5px;
-    }
-
-    .invalid-feedback {
-        color: red;
-    }
-    /* Button css */
-    .btn-submit {
-        background-color: #007bff;
-        color: white;
-        font-weight: bold;
-        border-radius: 5px;
-        padding: 0.5rem 1.5rem;
-    }
-
-        .btn-submit:hover {
-            background-color: #0056b3;
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #121212;
+            color: #fff;
         }
 
-    /* Terms section */
-    .terms-section {
-        font-size: 0.9rem;
-        margin-top: 1rem;
-    }
-</style>
+        .hero {
+            background-image: url('@Url.Content("~/images/2024-lamborghini-revuelto-review.jpg")');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            filter: brightness(70%);
+            overflow: hidden;
+        }
 
-<div class="container my-5">
-    <!-- Jumbotron Header -->
-    <div class="jumbotron text-center">
-        <h1 class="display-4">@Model.TenNhaCungCap</h1>
-        <p class="lead">Đại lý siêu xe chính hãng cung cấp các dòng xe chất lượng cao.</p>
-    </div>
+        .hero h1 {
+            font-size: 4rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: bold;
+            color: #fff;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: fadeInUp 1s ease-out;
+        }
 
+        .hero p {
+            font-size: 1.5rem;
+            color: #fff;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: fadeInUp 1.5s ease-out;
+        }
 
-    <div class="row mt-5">
+        .supplier-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 50px 0;
+        }
 
-        <div class="col-md-6">
-            <h2 class="font-weight-bold">Thông tin liên hệ</h2>
-            <div class="info-section">
-                <ul class="list-unstyled mt-3">
-                    <li><strong>Địa chỉ:</strong> @Model.DiaChiNhaCungCap</li>
-                    <li><strong>Số điện thoại:</strong> @Model.SoDienThoaiNhaCungCap</li>
-                    <li><strong>Email:</strong> @Model.EmailNhaCungCap</li>
-                </ul>
-            </div>
+        .info-card {
+            background: #1e1e1e;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
 
-            <!-- nút liênn hệ -->
-            <a href="mailto:@Model.EmailNhaCungCap" class="btn btn-dark mt-3">Email Us</a>
-            <button onclick="shareLocation()" class="btn btn-secondary mt-3">Share Location</button>
+        .info-card:hover {
+            transform: translateY(-10px);
+        }
 
-            <h4 class="mt-4 font-weight-bold">Giờ làm việc</h4>
-            <div class="working-hours-section">
-                <table class="table table-borderless">
-                    <tr><td>Monday</td><td>08:00 - 19:00</td></tr>
-                    <tr><td>Tuesday</td><td>08:00 - 19:00</td></tr>
-                    <tr><td>Wednesday</td><td>08:00 - 19:00</td></tr>
-                    <tr><td>Thursday</td><td>08:00 - 19:00</td></tr>
-                    <tr><td>Friday</td><td>08:00 - 19:00</td></tr>
-                    <tr><td>Saturday</td><td>08:00 - 17:00</td></tr>
-                    <tr><td>Sunday</td><td>08:00 - 17:00</td></tr>
-                </table>
-            </div>
+        .info-title {
+            color: #f39c12;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
 
-            <!-- trở về danh sách nhà cung cấp -->
-            <a href="@Url.Action("nhacungcap", "home")" class="btn btn-black mt-4 mb-4">Trở về danh sách</a>
+        .supplier-info p {
+            color: #ccc;
+            font-size: 1rem;
+        }
+
+        /* Animation for supplier name */
+        .supplier-name {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #f39c12;
+            animation: fadeInUp 1s ease-out, slideInFromLeft 1s ease-out;
+        }
+
+        /* New animation for sliding in from left */
+        @@keyframes slideInFromLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Animation for info cards - flip effect */
+        @@keyframes flipIn {
+            0% {
+                opacity: 0;
+                transform: rotateY(90deg);
+            }
+            100% {
+                opacity: 1;
+                transform: rotateY(0);
+            }
+        }
+
+        .info-card {
+            animation: flipIn 1s ease-out;
+        }
+
+        /* Additional animations */
+        .zoomIn {
+            animation: zoomIn 1.5s ease-in-out;
+        }
+
+        @@keyframes zoomIn {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @@keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section class="hero">
+        <div class="text-center text-white">
+            <h1 class="animate__animated animate__fadeIn">@Model.TenNhaCungCap</h1>
+            <p class="animate__animated animate__fadeIn animate__delay-1s">Chúng tôi luôn sẵn sàng hỗ trợ bạn! Hãy kết nối với chúng tôi để tìm hiểu thêm về các siêu xe đẳng cấp.</p>
         </div>
+    </section>
 
-        <!-- Ảnh đại lý và Map -->
-        <div class="col-md-6">
-            <!-- ảnh đại lý -->
-            <div class="card mb-4">
-                <img src="@Url.Content("~/images/2.jpg")" alt="Hình ảnh đại lý" style="width: 100%; height: 300px; object-fit: cover;">
+    <div class="container">
+      
+        <div class="supplier-info fade-in">
+            <div class="info-card animate__animated animate__flipInX">
+                <h3 class="info-title">Địa chỉ</h3>
+                <p>@Model.DiaChiNhaCungCap</p>
             </div>
-
-            <!-- Map -->
-            <div class="card">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.8654529928285!2d105.76390831526348!3d21.02851179334992!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab4e27d4b83d%3A0xd7a454cbb4b7fbb2!2zQm13IFNhbGEgU2hvd3Jvb20!5e0!3m2!1svi!2s!4v1691241650620!5m2!1svi!2s"
-                        width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div class="info-card animate__animated animate__flipInX">
+                <h3 class="info-title">Số điện thoại</h3>
+                <p>@Model.SoDienThoaiNhaCungCap</p>
             </div>
-        </div>
-    </div>
-
-    <!-- 3 tấm hình xe -->
-    <div class="row mt-5">
-        <!-- Image 1 -->
-        <div class="col-md-4 mb-3">
-            <div class="card">
-                <img src="@Url.Content("~/images/Screenshot 2024-11-07 211457.jpg")" alt="Hình ảnh 1" class="card-img-top" style="height: 200px; object-fit: cover;">
+            <div class="info-card animate__animated animate__flipInX">
+                <h3 class="info-title">Email</h3>
+                <p>@Model.EmailNhaCungCap</p>
             </div>
-        </div>
-
-        <!-- Image 2 -->
-        <div class="col-md-4 mb-3">
-            <div class="card">
-                <img src="@Url.Content("~/images/640-sieu-xe-Pagani-Huayra-BC.jpg")" alt="Hình ảnh 2" class="card-img-top" style="height: 200px; object-fit: cover;">
-            </div>
-        </div>
-
-        <!-- Image 3 -->
-        <div class="col-md-4 mb-3">
-            <div class="card">
-                <img src="@Url.Content("~/images/Ferrari-SF90-XX-1-5118-1688351681.jpg")" alt="Hình ảnh 3" class="card-img-top" style="height: 200px; object-fit: cover;">
-            </div>
-        </div>
-    </div>
-
-    <!-- Form Section -->
-    <div class="form-container">
-        <h2 class="font-weight-bold mb-4">Đăng ký thông tin</h2>
-        <form>
-            <div class="form-group">
-                <label for="salutation">Danh xưng *</label>
-                <select class="form-select" id="salutation" required>
-                    <option value="">Please select ...</option>
-                    <option value="mr">Ông</option>
-                    <option value="mrs">Bà</option>
-                </select>
-                <div class="invalid-feedback">Vui lòng chọn danh xưng</div>
-            </div>
-
-            <div class="form-group">
-                <label for="firstName">Tên *</label>
-                <input type="text" class="form-control" id="firstName" required>
-                <div class="invalid-feedback">Vui lòng nhập Tên</div>
-            </div>
-
-            <div class="form-group">
-                <label for="lastName">Họ *</label>
-                <input type="text" class="form-control" id="lastName" required>
-                <div class="invalid-feedback">Vui lòng nhập Họ</div>
-            </div>
-
-            <div class="form-group">
-                <label for="phone">Số điện thoại *</label>
-                <input type="tel" class="form-control" id="phone" required>
-                <div class="invalid-feedback">Vui lòng nhập Số điện thoại</div>
-            </div>
-
-            <div class="form-group">
-                <label for="email">Email *</label>
-                <input type="email" class="form-control" id="email" required>
-                <div class="invalid-feedback">Vui lòng nhập Email</div>
-            </div>
-
-            <div class="form-group">
-                <label for="city">Thành phố/ Tỉnh *</label>
-                <select class="form-select" id="city" required>
-                    <option value="">Please select ...</option>
-                    <option value="hcm">Hồ Chí Minh</option>
-                    <option value="hn">Hà Nội</option>
-                </select>
-                <div class="invalid-feedback">Vui lòng chọn Thành phố/ Tỉnh</div>
-            </div>
-
-            <div class="form-group">
-                <label for="district">Quận/ Huyện</label>
-                <input type="text" class="form-control" id="district">
-            </div>
-
-            <div class="form-group">
-                <label for="email">Email *</label>
-                <input type="email" class="form-control" id="email" required>
-                <div class="invalid-feedback">Mẫu xe quan tâm</div>
-            </div>
-
-            <div class="form-group">
-                <label for="requestInfo">Thông tin yêu cầu</label>
-                <textarea class="form-control" id="requestInfo"></textarea>
-            </div>
-
-            <div class="form-group form-check terms-section">
-                <input type="checkbox" class="form-check-input" id="agree" required>
-                <label class="form-check-label" for="agree">Tôi đồng ý</label>
-                <div class="invalid-feedback">Vui lòng đồng ý với chính sách</div>
+            <div class="info-card animate__animated animate__flipInX">
+                <h3 class="info-title">Giờ làm việc</h3>
                 <p>
-                    1. Tôi trên 18 tuổi và tôi có bằng lái xe B2 hợp lệ.*<br>
-                    2. Tôi đồng ý để THACO (và các công ty liên kết, đối tác của THACO) thu thập,hiệu chỉnh,lưu trữ,sao chép, sử dụng thông tin của tôi cho các hoạt động tiếp thị và dịch vụ (bao gồm nhưng không giới hạn tới các công ty thuộc tập đoàn BMW) nhầm mục đích chăm sóc khách hàng, gửi thiệp mời đến các sự kiện ,các hoạt động tiếp thị, nghiên cứu và các mục đích thống kê khác giữa các đối tác hoặc công ty thành viên của BMW .Tôi cũng biết rằng thông tin cá nhân của tôi sẽ được sử dụng dựa trên luật bảo vệ sự riêng tư hiện hành .<br>
-                    3. Tôi cũng đồng ý nhận thông tin từ THACO (và các công ty liên kết, đối tác của THACO) liên hệ tôi nhầm mục đích thực hiện chương trình quảng cáo /chăm sóc khách hàng qua số điện thoại hay email mà tôi đã đăng ký .
+                    Thứ 2 - Thứ 6: 8:00 AM - 7:00 PM<br>
+                    Thứ 7, Chủ nhật: 8:00 AM - 5:00 PM
                 </p>
             </div>
-
-            <button type="submit" class="btn btn-submit">Submit</button>
-        </form>
+        </div>
     </div>
-</div>
-
-<script>
-    function shareLocation() {
-        alert("Share location functionality coming soon!");
-    }
-    (() => {
-        'use strict';
-        const forms = document.querySelectorAll('.form-container form');
-        Array.from(forms).forEach(form => {
-            form.addEventListener('submit', event => {
-                if (!form.checkValidity()) {
-                    event.preventDefault();
-                    event.stopPropagation();
-                }
-                form.classList.add('was-validated');
-            }, false);
-        });
-    })();
-</script>
+</body>
