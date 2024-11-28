@@ -150,5 +150,11 @@ namespace CuaHangXe_Test2.Controllers
         { 
             return View(); 
         }
+        public ActionResult ThongTinDichVu()
+        {
+            List<ThongTinDichVu> allThongTinDichVus = db.ThongTinDichVus.ToList();
+            return View(allThongTinDichVus);
+
+        }
     }
 }
