@@ -151,6 +151,14 @@
     <Content Include="Images\audiR8.jpg" />
     <Content Include="Images\August-Motorcars-Supercar-Showroom.jpg" />
     <Content Include="Images\backgroundQuanLy.jpg" />
+    <Content Include="Images\blog1.jpg" />
+    <Content Include="Images\blog2.jpg" />
+    <Content Include="Images\blog3.jpg" />
+    <Content Include="Images\blog4.jpg" />
+    <Content Include="Images\blog5.jpg" />
+    <Content Include="Images\blog6.jpg" />
+    <Content Include="Images\blog7.jpg" />
+    <Content Include="Images\blog8.jpg" />
     <Content Include="Images\close.jpg" />
     <Content Include="Images\corvette.jpg" />
     <Content Include="Images\dc35efe6a78d48e99fc915c167249cfd.jpg" />
@@ -390,7 +398,7 @@
     <Content Include="Views\NhanVien\Index.cshtml" />
     <Content Include="Views\NhanVien\QuanLyDonHang.cshtml" />
     <Content Include="Views\NhanVien\QuanLyNhanVien.cshtml" />
-    <Content Include="Views\Home\TinTuc.cshtml" />
+    <Content Include="Views\Home\Blog.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
