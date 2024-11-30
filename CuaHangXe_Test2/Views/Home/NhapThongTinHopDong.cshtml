@@ -27,6 +27,26 @@
         <label for="NgayLapHopDong">Ngày lập hợp đồng:</label>
         <input type="text" id="NgayLapHopDong" name="NgayLapHopDong" value="@DateTime.Now.ToString("dd/MM/yyyy")" readonly />
     </div>
+    <div>
+        <label for="TenKhachHang">Tên khách hàng:</label>
+        <input type="text" id="TenKhachHang" name="TenKhachHang" placeholder="Nhập tên khách hàng" required />
+    </div>
+
+    <div>
+        <label for="EmailKhachHang">Email khách hàng:</label>
+        <input type="text" id="EmailKhachHang" name="EmailKhachHang" placeholder="Nhập email khách hàng" required />
+    </div>
+
+    <div>
+        <label for="SoDienThoaiKhachHang">Số điện thoại:</label>
+        <input type="text" id="SoDienThoaiKhachHang" name="SoDienThoaiKhachHang" placeholder="Nhập số điện thoại" required />
+    </div>
+
+
+    <div>
+        <label for="DiaChiKhachHang">Địa chỉ:</label>
+        <input type="text" id="DiaChiKhachHang" name="DiaChiKhachHang" placeholder="Nhập địa chỉ khách hàng" required />
+    </div>
 
 
 
@@ -78,33 +98,57 @@
             <textarea id="DieuKhoanHopDong" name="DieuKhoanHopDong" rows="5" required></textarea>
         </div>*@
 
-    <div>
-        <label for="TongGiaTriHopDong">Tổng giá trị hợp đồng:</label>
-        <input type="text" id="TongGiaTriHopDong" name="TongGiaTriHopDong"
-               value="@(Model.TongGiaTriHopDong.HasValue ? "$" + Model.TongGiaTriHopDong.Value.ToString("N0") : "$0")" readonly />
-
-    </div>
-
     @*<div>
-        <label for="MaNhanVienPheDuyet">Mã nhân viên phê duyệt:</label>
-        <input type="text" id="MaNhanVienPheDuyet" name="MaNhanVienPheDuyet" value="@MaNVPheDuyet" readonly />
-    </div>*@
+            <label for="TongGiaTriHopDong">Tổng giá trị hợp đồng:</label>
+            <input type="text" id="TongGiaTriHopDong" name="TongGiaTriHopDong"
+                   value="@(Model.TongGiaTriHopDong.HasValue ? "$" + Model.TongGiaTriHopDong.Value.ToString("N0") : "$0")" readonly />
+
+        </div>*@
+
+    <input type="text" id="TongGiaTriHopDong" name="DisplayTongGiaTriHopDong"
+           value="@(Model.TongGiaTriHopDong.HasValue ? "$" + Model.TongGiaTriHopDong.Value.ToString("N0") : "$0")" readonly />
+
+    <!-- Hidden input để gửi giá trị thực -->
+    <input type="hidden" id="TongGiaTriHopDong" name="TongGiaTriHopDong" value="@(Model.TongGiaTriHopDong ?? 0)" />
+    @*<div>
+            <label for="MaNhanVienPheDuyet">Mã nhân viên phê duyệt:</label>
+            <input type="text" id="MaNhanVienPheDuyet" name="MaNhanVienPheDuyet" value="@MaNVPheDuyet" readonly />
+        </div>*@
 
     <div>
         <label for="TrangThaiHopDong">Trạng thái hợp đồng:</label>
         <input type="text" id="TrangThaiHopDong" name="TrangThaiHopDong" value="Chưa duyệt" readonly />
-    </div> 
+    </div>
     <div>
         <button type="submit" class="btn1 btn-success">Xác nhận hợp đồng</button>
     </div>
 
 
 </form>
-<script>function confirmSubmission() {
+<script>
+function confirmSubmission() {
         if (confirm("Bạn có chắc chắn muốn xác nhận hợp đồng này không?")) {
             document.getElementById("hopDongForm").submit(); // Nếu người dùng xác nhận, gửi form
         }
-    }</script>
+    }
+
+
+    @if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+}
+
+
+
+
+
+
+</script>
 <style>
         /* Cấu trúc cơ bản */
     body {

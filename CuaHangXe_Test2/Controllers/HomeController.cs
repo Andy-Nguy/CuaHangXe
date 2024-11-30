@@ -156,5 +156,69 @@ namespace CuaHangXe_Test2.Controllers
             return View(allThongTinDichVus);
 
         }
+
+        //[HttpPost]
+        public ActionResult XacNhanHopDong(string TenKhachHang, string EmailKhachHang, string SoDienThoaiKhachHang,
+                                            string MaHopDong,string DiaChiKhachHang, string MaKhachHang, string MaXe, string DieuKhoanHopDong,decimal? TongGiaTriHopDong)
+        {
+            using (var transaction = db.Database.BeginTransaction())
+            {
+                try
+                {
+                    // Check if the customer already exists
+                    var existingCustomer = db.KhachHangs.FirstOrDefault(k => k.MaKhachHang == MaKhachHang);
+
+                    if (existingCustomer == null)
+                    {
+                        // Create a new customer
+                        var newCustomer = new KhachHang
+                        {
+                            MaKhachHang = MaKhachHang,
+                            HoTenKhachHang = TenKhachHang,
+                            EmailKhachHang = EmailKhachHang,
+                            SoDienThoaiKhachHang = SoDienThoaiKhachHang,
+                            DiaChiKhachHang=DiaChiKhachHang
+                        };
+
+                        db.KhachHangs.Add(newCustomer);
+                    }
+
+                    // Create a new contract
+                    var newContract = new HopDongMuaBan
+                    {
+                        MaHopDong = MaHopDong,
+                        MaKhachHang = MaKhachHang,
+                        MaXe = MaXe,
+                        NgayLapHopDong = DateTime.Now,
+                        //DieuKhoanHopDong = DieuKhoanHopDong,
+                       TongGiaTriHopDong = TongGiaTriHopDong,
+                        TrangThaiHopDong = "Chưa duyệt"
+                    };
+
+                    db.HopDongMuaBans.Add(newContract);
+
+                    // Save changes
+                    db.SaveChanges();
+
+                    // Commit transaction
+                    transaction.Commit();
+
+                    TempData["SuccessMessage"] = "Hợp đồng mua bán đã được xác nhận thành công!";
+                    return RedirectToAction("Index");
+                }
+                catch (Exception ex)
+                {
+                    // Rollback transaction in case of an error
+                    transaction.Rollback();
+                    TempData["ErrorMessage"] = "Có lỗi xảy ra: " + ex.Message;
+                    return RedirectToAction("NhapThongTinHopDong", new { maXe = MaXe });
+                }
+            }
+        }
+
+
+
+
+
     }
 }
