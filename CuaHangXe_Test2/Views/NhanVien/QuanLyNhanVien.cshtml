@@ -26,7 +26,7 @@
             <div class="card-body">
                 <div class="row mb-3">
                     <div class="col">
-                        <div class="input-group">
+                        @*<div class="input-group">
                             <input type="text"
                                    class="form-control"
                                    placeholder="Loại nhân viên"
@@ -38,7 +38,7 @@
                                     </button>
                                 </span>
                             </div>
-                        </div>
+                        </div>*@
                     </div>
                 </div>
                 <table class="table table-bordered">
@@ -50,14 +50,15 @@
                             <th style="width:23% ;">Địa chỉ</th>
                             <th style="width: 11%;">Số điện thoại</th>
                             <th style="width: 12%;">Chức vụ</th>
-                            <th style="width: 5%;"><em class="fa fa-cog"></em></th>
+                            <th style="width: 5%;">Sửa</th>
+                            <th style="width: 5%;">Xóa</th>
                         </tr>
                     </thead>
                     <tbody id="tableDanhSach">
                         @foreach (var nv in Model)
                         {
                             <tr>
-                                <td style="width:10% ;">@Html.DisplayFor(x=>nv.MaNhanVien)</td>
+                                <td style="width:10% ;">@Html.DisplayFor(x => nv.MaNhanVien)</td>
                                 <td style="width:17% ;">@Html.DisplayFor(x => nv.TenNhanVien)</td>
                                 <td style="width: 17%;">@Html.DisplayFor(x => nv.EmailNhanVien)</td>
                                 <td style="width:23% ;">@Html.DisplayFor(x => nv.DiaChiNhanVien)</td>
@@ -74,12 +75,17 @@
                                 {
                                     <td style="width: 12%;">Quản lý đơn hàng</td>
                                 }
-                                <td style="width: 5%;"><em class="fa fa-cog"></em></td>
+                                <td style="width: 5%;">
+                                    <a href="@Url.Action("EditNV", "NhanVien", new { MaNhanVien = nv.MaNhanVien })" class="fa fa-cog"></a>
+                                </td>
+
+                                <th style="width: 5%;"><a href="#" class="fa fa-trash"></a></th>
                             </tr>
                         }
                     </tbody>
                 </table>
             </div>
+
 
             <!-- Footer -->
             <div class="card-footer myCardFooter">
@@ -91,3 +97,4 @@
         </div>
     </div>
 </div>
+

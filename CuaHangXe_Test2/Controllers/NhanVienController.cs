@@ -32,6 +32,85 @@ namespace CuaHangXe_Test2.Controllers
             }
             return View();
         }
+
+
+
+         // Phương thức GET: Hiển thị form chỉnh sửa
+    [HttpGet]
+    public ActionResult EditNV(string MaNhanVien)
+    {
+        if (string.IsNullOrEmpty(MaNhanVien))
+        {
+            return HttpNotFound("Không tìm thấy mã nhân viên.");
+        }
+
+        var nhanVien = db.NhanViens.FirstOrDefault(nv => nv.MaNhanVien == MaNhanVien.Trim());
+        if (nhanVien == null)
+        {
+            return HttpNotFound("Không tìm thấy nhân viên.");
+        }
+
+        return View(nhanVien);
+    }
+
+    // Phương thức POST: Xử lý lưu thông tin sau khi chỉnh sửa
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public ActionResult EditNV(NhanVien model)
+    {
+        if (ModelState.IsValid)
+        {
+            var nhanVien = db.NhanViens.FirstOrDefault(nv => nv.MaNhanVien == model.MaNhanVien);
+            if (nhanVien != null)
+            {
+                // Cập nhật thông tin
+                nhanVien.TenNhanVien = model.TenNhanVien;
+                nhanVien.EmailNhanVien = model.EmailNhanVien;
+                nhanVien.DiaChiNhanVien = model.DiaChiNhanVien;
+                nhanVien.SoDienThoaiNhanVien = model.SoDienThoaiNhanVien;
+                nhanVien.VaiTro = model.VaiTro;
+
+                db.SaveChanges();
+                return RedirectToAction("QuanLyNhanVien");
+            }
+            else
+            {
+                ModelState.AddModelError("", "Không tìm thấy nhân viên để cập nhật.");
+            }
+        }
+
+        return View(model);
+    }
+
+
+        public ActionResult QuanLyKho()
+        {
+            var dsXe = db.Xes.ToList(); // Lấy tất cả xe từ cơ sở dữ liệu
+            return View(dsXe); // Trả về View với danh sách xe
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         public ActionResult QuanLyDonHang()
         {
             // Lấy danh sách hợp đồng mua bán

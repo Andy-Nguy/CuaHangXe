@@ -1,0 +1,225 @@
+﻿
+
+@model CuaHangXe_Test2.Models.NhanVien
+@{
+    ViewBag.Title = "EditNV";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+@{
+    ViewBag.Title = "Chỉnh sửa nhân viên";
+}
+
+<div class="container">
+    <h3 class="text-center ">Chỉnh sửa thông tin nhân viên</h3>
+
+    @using (Html.BeginForm("EditNV", "NhanVien", FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TenNhanVien, "Tên nhân viên", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TenNhanVien, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TenNhanVien, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EmailNhanVien, "Email", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EmailNhanVien, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.EmailNhanVien, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DiaChiNhanVien, "Địa chỉ", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DiaChiNhanVien, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DiaChiNhanVien, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SoDienThoaiNhanVien, "Số điện thoại", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SoDienThoaiNhanVien, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SoDienThoaiNhanVien, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.VaiTro, "Vai trò", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.VaiTro, new SelectList(new[] {
+                    new { Text = "Quản lý", Value = "admin" },
+                    new { Text = "Quản lý kho", Value = "userKho" },
+                    new { Text = "Quản lý đơn hàng", Value = "userDonHang" }
+                }, "Value", "Text"), htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.VaiTro, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Lưu" class="btn btn-primary" />
+
+                <a href="@Url.Action("QuanLyNhanVien", "NhanVien")" class="btn btn-secondary">Hủy</a>
+            </div>
+        </div>
+    }
+
+</div>
+
+<style>
+    /* Đặt chung cho trang */
+    body {
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+        height: 100vh; /* Chiều cao bằng viewport */
+        background-image: url('/Images/XE_010_1.jpg'); /* Đường dẫn ảnh */
+        background-size: cover; /* Đảm bảo ảnh không bị cắt */
+        background-position: center center; /* Căn giữa ảnh theo cả hai trục */
+        background-repeat: no-repeat; /* Không lặp lại ảnh */
+        background-color: #f0f0f0; /* Màu nền phụ để hỗ trợ khi ảnh không hiển thị */
+    }
+
+    /* Container nội dung */
+    .container {
+        width: 80%; /* Điều chỉnh chiều rộng của container */
+        max-width: 900px; /* Đặt chiều rộng tối đa */
+        height: auto;
+        background-image: url('/Images/XE_010_1.jpg'); /* Cùng ảnh nền với body */
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        filter: blur(0.39px); /* Làm mờ ảnh nền */
+        border-radius: 20px; /* Đặt viền bo tròn cho container */
+        padding: 40px 50px;
+        margin: 50px auto; /* Canh giữa container */
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1); /* Thêm hiệu ứng đổ bóng nhẹ */
+        position: relative;
+        z-index: 2; /* Đảm bảo container luôn nằm trên ảnh nền */
+        text-align: left;
+    }
+
+        /* Tạo lớp phủ mờ cho background của container */
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.7); /* Lớp phủ màu trắng mờ */
+            border-radius: 20px;
+            z-index: -1; /* Đặt lớp này dưới các phần tử khác */
+        }
+
+    /* Tiêu đề */
+    h3.text-center {
+        margin: 20px 0;
+        font-size: 30px; /* Tăng kích thước font */
+        font-weight: bold;
+        color: #000000; /* Màu xanh chính */
+        text-transform: uppercase;
+        letter-spacing: 2px; /* Tăng khoảng cách chữ */
+        position: relative;
+    }
+
+    /* Dòng gạch chân tiêu đề */
+    .container h3::after {
+        content: '';
+        display: block;
+        width: 180px;
+        height: 3px;
+        background: #000000;
+        margin: 10px auto 0;
+        border-radius: 2px;
+    }
+
+    /* Nhãn (Label) */
+    .container .control-label {
+        font-size: 16px;
+        font-weight: bold;
+        color: #495057; /* Màu xám đậm */
+        margin-bottom: 8px;
+        display: block;
+    }
+
+    /* Input form */
+    .container .form-control {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ced4da;
+        border-radius: 8px;
+        font-size: 14px;
+        color: #495057;
+        background-color: #f8f9fa;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        /* Hiệu ứng focus input */
+        .container .form-control:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+            outline: none;
+        }
+
+    /* Nút bấm */
+    .container .btn {
+        font-size: 14px;
+        font-weight: bold;
+        padding: 12px 24px;
+        border-radius: 5px;
+        margin-top: 15px;
+        transition: all 0.3s ease;
+    }
+
+    .container .btn-primary {
+        background-color: #000000;
+        color: #fff;
+        border: none;
+    }
+
+        .container .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+    .container .btn-secondary {
+        background-color: #6c757d;
+        color: #fff;
+        border: none;
+    }
+
+        .container .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+
+    /* Tin nhắn lỗi */
+    .container .text-danger {
+        font-size: 13px;
+        color: #dc3545;
+        margin-top: 5px;
+    }
+
+    /* Hiệu ứng viền container */
+    .container::after {
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        width: calc(100% + 20px);
+        height: calc(100% + 20px);
+        border: 2px solid rgba(0, 123, 255, 0.2);
+        border-radius: 20px;
+        z-index: -1;
+    }
+
+    /* Các form group */
+    .form-group {
+        margin-bottom: 25px; /* Tăng khoảng cách giữa các trường */
+    }
+</style>

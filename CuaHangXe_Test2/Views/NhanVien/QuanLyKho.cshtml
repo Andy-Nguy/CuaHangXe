@@ -1,0 +1,79 @@
+﻿@model List<CuaHangXe_Test2.Models.Xe> 
+@{
+    ViewBag.Title = "Quản lý kho (Danh sách xe)";
+    Layout = "~/Views/Shared/_LayoutNhanVien2.cshtml";
+}
+
+<div id="content">
+    <div class="container">
+        <div class="card text-center">
+            <!-- Header -->
+            <div class="card-header myCardHeader position-relative">
+                <h3 class="text-center text-primary font-weight-bold">
+                    Danh sách xe
+                </h3>
+            </div>
+
+            <!-- Body -->
+            <div class="card-body">
+                <div class="row mb-3">
+                    <div class="col">
+                        @*<div class="input-group">
+                            <input type="text" class="form-control" placeholder="Tìm kiếm xe" id="searchXe" />
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="btnTimXe">
+                                    <button class="btn" onclick="searchCar()">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>*@
+                    </div>
+                </div>
+                <!-- Table -->
+                <table class="table table-bordered">
+                    <thead class="text-primary">
+                        <tr>
+                            <th style="width:10%;">Mã xe</th>
+                            <th style="width:24%;">Tên xe</th>
+                            <th style="width:17%;">Hãng xe</th>
+                            <th style="width:10%;">Màu sắc</th>
+                            <th style="width:11%;">Giá $</th>
+                            <th style="width:18%;">Trạng thái</th>
+                            <th style="width:5%;">Sửa</th>
+                            <th style="width:5%;">Xóa</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var xe in Model)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(x => xe.MaXe)</td>
+                                <td>@Html.DisplayFor(x => xe.TenXe)</td>
+                                <td>@Html.DisplayFor(x => xe.HangXe)</td>
+                                <td>@Html.DisplayFor(x => xe.MauSac)</td>
+                                <td>@(xe.GiaBanXe.HasValue ? xe.GiaBanXe.Value.ToString("N0") : "Chưa có giá")</td>
+
+
+                                <td>@Html.DisplayFor(x => xe.TrangThai)</td>
+                                <td>
+                                    <a href="@Url.Action("EditXe", "Xe", new { MaXe = xe.MaXe })" class="fa fa-cog"></a>
+                                </td>
+                                <td>
+                                    <a href="#" class="fa fa-trash"></a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Footer -->
+            <div class="card-footer myCardFooter">
+                <nav>
+                    <ul class="pagination justify-content-center" id="ulPhanTrang"></ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>

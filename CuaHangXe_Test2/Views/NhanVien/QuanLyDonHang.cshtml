@@ -43,7 +43,7 @@
                             <th>Địa chỉ</th>
                             <th>Mã xe</th>
                             <th>Ngày ký</th>
-                            <th>Số tiền</th>
+                            <th>Số tiền $</th>
                             <th>Trạng thái</th>
                             <th>Hành động</th>
                         </tr>
@@ -75,7 +75,8 @@
                                 <td>@khachHang.DiaChiKhachHang</td>
                                 <td>@item.MaXe</td>
                                 <td>@item.NgayLapHopDong</td>
-                                <td>@item.TongGiaTriHopDong</td>
+                                <td>@(item.TongGiaTriHopDong.HasValue ? item.TongGiaTriHopDong.Value.ToString("N0") : "Chưa có giá trị")</td>
+
                                 <td>@item.TrangThaiHopDong</td>
 
                                 <td>
